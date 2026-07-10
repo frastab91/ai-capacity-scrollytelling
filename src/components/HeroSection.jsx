@@ -200,7 +200,7 @@ export default function HeroSection() {
         {/* STEP 1.1 */}
         <section className="step" data-step="hero-monolith">
           <div className="step-card">
-            <span className="step-tag">Narrative / 01</span>
+            <span className="step-tag">01</span>
             <h2 className="step-heading">The Myth of the Monolith</h2>
             <p>Policy debates surrounding artificial intelligence frequently treat the <strong>“capacity to benefit from AI” as a single monolithic variable</strong>—a solid stock of technological infrastructure, digital skills, or institutional capability that can be linearly accumulated through capital investment and standard training.</p>
           </div>
@@ -209,7 +209,7 @@ export default function HeroSection() {
         {/* STEP 1.2 */}
         <section className="step" data-step="hero-split">
           <div className="step-card">
-            <span className="step-tag">Narrative / 02</span>
+            <span className="step-tag">02</span>
             <h2 className="step-heading" style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap' }}>
               AI Capacity Is{' '}
               <span 

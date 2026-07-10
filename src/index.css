@@ -481,7 +481,7 @@ body {
 .active-constellation,
 .pathway-tree,
 .safeguards-nested-layers {
-  transform-origin: 400px 240px;
+  transform-origin: 400px 300px;
 }
 
 /* Base styles for nodes */
