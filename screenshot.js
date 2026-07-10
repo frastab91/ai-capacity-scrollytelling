@@ -12,11 +12,11 @@ import path from 'path';
   // Set viewport to mobile (iPhone 12/13/14 Pro dimensions)
   await page.setViewport({ width: 390, height: 844, deviceScaleFactor: 2 });
   
-  console.log('Navigating to http://localhost:3000/...');
+  console.log('Navigating to http://localhost:3001/...');
   try {
-    await page.goto('http://localhost:3000/', { waitUntil: 'networkidle2' });
+    await page.goto('http://localhost:3001/', { waitUntil: 'networkidle2' });
   } catch (err) {
-    console.error('Failed to connect to dev server. Make sure Vite is running on port 3000.', err);
+    console.error('Failed to connect to dev server. Make sure Vite is running on port 3001.', err);
     await browser.close();
     process.exit(1);
   }

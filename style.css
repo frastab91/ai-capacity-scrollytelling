@@ -62,7 +62,7 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 3rem 2rem;
+  padding: 4rem 2rem;
   background-color: var(--color-bg);
   border-bottom: 1px solid var(--color-border);
   position: relative;
@@ -72,94 +72,121 @@ body {
   font-family: var(--font-sans);
   text-transform: uppercase;
   font-size: 0.8rem;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.22em;
   color: var(--color-accent);
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
   font-weight: 700;
 }
 
 .header-meta .pub-date {
   color: var(--color-text-muted);
-  margin-left: 1.2rem;
+  margin-left: 1.5rem;
   border-left: 1.5px solid var(--color-border);
-  padding-left: 1.2rem;
+  padding-left: 1.5rem;
 }
 
 .header-title {
   font-family: var(--font-display);
-  font-size: clamp(2.4rem, 6vw, 4.4rem);
+  font-size: clamp(2.4rem, 6.5vw, 4.8rem);
   font-weight: 700;
   max-width: 1100px;
-  line-height: 1.12;
+  line-height: 1.15;
   margin-bottom: 2.5rem;
   color: var(--color-text);
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
 }
 
 .header-subtitle {
   font-family: var(--font-serif);
   font-style: italic;
-  font-size: clamp(1.15rem, 2.5vw, 1.7rem);
+  font-size: clamp(1.2rem, 2.8vw, 1.8rem);
   color: var(--color-text-muted);
-  max-width: 840px;
+  max-width: 860px;
   margin-bottom: 3.5rem;
-  line-height: 1.45;
+  line-height: 1.5;
 }
 
 .header-byline {
   font-family: var(--font-sans);
-  font-size: 0.9rem;
+  font-size: 0.78rem;
   color: var(--color-text-muted);
   border-top: 1px solid var(--color-border);
   border-bottom: 1px solid var(--color-border);
-  padding: 0.8rem 2rem;
-  letter-spacing: 0.02em;
+  padding: 0.9rem 2.5rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .header-byline .paper-title {
+  font-family: var(--font-serif);
+  font-style: italic;
+  text-transform: none;
+  font-size: 0.9rem;
   font-weight: 600;
   color: var(--color-text);
 }
 
 .scroll-prompt {
   position: absolute;
-  bottom: 2.5rem;
+  bottom: 3rem;
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 0.8rem;
+  opacity: 0.85;
+}
+
+.scroll-text {
   font-family: var(--font-sans);
-  font-size: 0.8rem;
+  font-size: 0.72rem;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.22em;
   color: var(--color-text-muted);
-  animation: pulse-down 2.2s infinite ease-in-out;
 }
 
-@keyframes pulse-down {
-  0%, 100% { transform: translateY(0); opacity: 0.5; }
-  50% { transform: translateY(8px); opacity: 1; }
+.scroll-indicator {
+  width: 22px;
+  height: 36px;
+  border: 1.5px solid var(--color-text-muted);
+  border-radius: 12px;
+  position: relative;
+  display: flex;
+  justify-content: center;
 }
 
-.scroll-arrow {
-  margin-top: 0.6rem;
-  font-size: 1.3rem;
-  font-weight: 700;
-  color: var(--color-accent);
+.scroll-dot {
+  width: 4px;
+  height: 7px;
+  background-color: var(--color-accent);
+  border-radius: 50%;
+  position: absolute;
+  top: 6px;
+  animation: scroll-dot-anim 1.8s infinite ease-in-out;
+}
+
+@keyframes scroll-dot-anim {
+  0% { transform: translateY(0); opacity: 0; }
+  20% { opacity: 1; }
+  80% { transform: translateY(12px); opacity: 0; }
+  100% { opacity: 0; }
 }
 
 /* 3. Scrollytelling Container Layout */
 .scrolly-container {
   position: relative;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
   background-color: var(--color-bg);
 }
 
 /* Sticky Graphic window */
 .sticky-graphic {
-  position: fixed;
+  grid-column: 1;
+  grid-row: 1;
+  position: sticky;
   top: 0;
-  left: 0;
   height: 100vh;
   width: 100%;
   z-index: 1;
@@ -186,6 +213,9 @@ body {
   pointer-events: none;
   visibility: hidden;
   transition: opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1), visibility 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .visual-section.active {
@@ -196,6 +226,8 @@ body {
 
 /* Scrolling Narrative Text */
 .scroll-narrative {
+  grid-column: 1;
+  grid-row: 1;
   position: relative;
   z-index: 5;
   width: 100%;
@@ -217,13 +249,14 @@ body {
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid hsla(35, 10%, 80%, 0.35);
-  border-left: 3px solid var(--color-border);
-  padding: 2rem 2.2rem;
+  border-left: 4px solid var(--color-border);
+  border-radius: 12px;
+  padding: 2.2rem 2.5rem;
   max-width: 480px;
   width: 100%;
   pointer-events: auto;
   box-shadow: 
-    0 4px 30px rgba(92, 74, 60, 0.03),
+    0 10px 40px rgba(92, 74, 60, 0.04),
     0 1px 3px rgba(0, 0, 0, 0.02);
   transition: 
     border-color 0.4s cubic-bezier(0.25, 1, 0.5, 1), 
@@ -236,9 +269,9 @@ body {
 .step.active-step .step-card {
   border-left-color: var(--color-accent);
   opacity: 1;
-  transform: translateY(-4px);
+  transform: translateY(-6px);
   box-shadow: 
-    0 15px 40px rgba(92, 74, 60, 0.09),
+    0 20px 50px rgba(92, 74, 60, 0.12),
     0 1px 8px rgba(92, 74, 60, 0.04);
 }
 
@@ -503,18 +536,18 @@ body {
   font-weight: 800;
   fill: #fff;
   text-anchor: middle;
-  letter-spacing: 0.1em;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+  letter-spacing: 0.15em;
+  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.45);
 }
 
 .monolith-sublabel {
   font-family: var(--font-sans);
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 700;
   fill: var(--color-gold);
   text-anchor: middle;
-  letter-spacing: 0.25em;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  letter-spacing: 0.35em;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
 }
 
 .crack-path {
@@ -871,38 +904,52 @@ body {
    ========================================================================== */
 @media (min-width: 768px) {
   .scrolly-container {
-    display: block;
+    display: grid;
+    grid-template-columns: 55% 45%;
+    grid-template-rows: auto;
   }
 
   .graphic-wrapper {
     transform: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 2.5rem;
+    box-sizing: border-box;
   }
 
   .sticky-graphic {
-    position: fixed;
+    grid-column: 1;
+    grid-row: 1;
+    position: sticky;
     top: 0;
-    left: 0;
-    width: 55%;
+    width: 100%;
     height: 100vh;
     border-bottom: none;
     border-right: 1px solid var(--color-border);
+    z-index: 1;
   }
 
   .scroll-narrative {
-    margin-left: 55%;
-    width: 45%;
+    grid-column: 2;
+    grid-row: 1;
+    width: 100%;
+    margin-left: 0;
     padding-bottom: 0;
+    z-index: 5;
   }
 
   .step {
     min-height: 100vh;
     align-items: center;
-    padding: 0 4rem;
+    padding: 0 5rem;
   }
 
   .step-card {
-    padding: 2.8rem 3.2rem;
-    max-width: 520px;
+    padding: 3rem 3.5rem;
+    max-width: 540px;
+    border-radius: 12px;
   }
 
   .step-heading {
