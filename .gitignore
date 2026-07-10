@@ -1,0 +1,16 @@
+# Dependencies
+node_modules/
+dist/
+.env
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Antigravity artifacts
+.agents/
+.gemini/
