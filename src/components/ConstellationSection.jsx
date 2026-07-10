@@ -12,7 +12,7 @@ const ConstellationSection = ({ isActive, selectedNode, setSelectedNode }) => {
     // Entrance timeline when scrolled into view
     const tl = gsap.timeline({
       scrollTrigger: {
-        trigger: containerRef.current,
+        trigger: '.step[data-step="constellation-interactive"]',
         start: 'top 80%',
         toggleActions: 'play none none reverse',
       }

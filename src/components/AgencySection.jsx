@@ -15,7 +15,7 @@ const AgencySection = ({ isActive, selectedPathway, setSelectedPathway }) => {
 
     const tl = gsap.timeline({
       scrollTrigger: {
-        trigger: containerRef.current,
+        trigger: '.step[data-step="agency-intro"]',
         start: 'top 70%',
         end: 'bottom 30%',
         scrub: 0.5,

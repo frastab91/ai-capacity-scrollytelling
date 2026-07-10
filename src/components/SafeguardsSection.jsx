@@ -21,7 +21,7 @@ const SafeguardsSection = ({ isActive }) => {
 
     const tl = gsap.timeline({
       scrollTrigger: {
-        trigger: containerRef.current,
+        trigger: '.step[data-step="safeguards-layers"]',
         start: 'top 75%',
         end: 'bottom 15%',
         scrub: 0.5,

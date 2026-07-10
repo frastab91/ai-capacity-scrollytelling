@@ -19,7 +19,7 @@ const ClosingSection = ({ isActive }) => {
     // Scroll-scrub timeline for the closing landscape
     const tl = gsap.timeline({
       scrollTrigger: {
-        trigger: containerRef.current,
+        trigger: '.step[data-step="closing-view"]',
         start: 'top 80%',
         end: 'bottom 20%',
         scrub: 0.8,
