@@ -148,11 +148,11 @@ const ClosingSection = ({ isActive }) => {
             </text>
           </g>
           
-          {/* Tag 3: Sovereign DPI */}
+          {/* Tag 3: Pluriversal Futures */}
           <g className="future-tag-group" style={{ transition: 'none' }}>
             <rect x="352" y="285" width="96" height="24" rx="12" fill="#fff" stroke="#e4dad0" filter="url(#shadow-node-closing)" />
             <text x="400" y="301" className="landscape-tag" fill="#b28d46" textAnchor="middle" style={{ fontFamily: 'var(--font-sans)', fontSize: '8.5px', fontWeight: '700', letterSpacing: '0.04em' }}>
-              Sovereign DPI
+              Pluriversal Futures
             </text>
           </g>
           
