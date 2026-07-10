@@ -180,7 +180,7 @@ export default function AbsorptiveSection() {
               {/* Feedback Arrow */}
               <path d="M 444 450 C 564 450 564 150 444 150" className="feedback-path" fill="none" stroke="#b28d46" strokeWidth="2" strokeDasharray="6 6" style={{ strokeDasharray: 400, strokeDashoffset: 400, opacity: 0 }} />
               <path d="M 446 144 L 434 150 L 446 156 Z" className="feedback-arrow" fill="#b28d46" style={{ opacity: 0 }} />
-              <text x="525" y="300" className="feedback-label" fill="#b28d46" transform="rotate(90, 525, 300)" style={{ opacity: 0 }}>Feedback & Learning Loop</text>
+              <text x="565" y="300" className="feedback-label" fill="#b28d46" transform="rotate(90, 565, 300)" style={{ opacity: 0 }}>Feedback & Learning Loop</text>
             </g>
           </svg>
         </div>
