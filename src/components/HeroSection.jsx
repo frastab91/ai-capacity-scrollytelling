@@ -82,14 +82,14 @@ export default function HeroSection() {
           <svg viewBox="0 0 800 600" width="100%" height="100%">
             <defs>
               <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-                <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#e4dad0" stroke-width="0.5" />
+                <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#e4dad0" strokeWidth="0.5" />
               </pattern>
               
               <filter id="shadow-monolith" x="-20%" y="-20%" width="140%" height="140%">
-                <feDropShadow dx="0" dy="15" stdDeviation="20" flood-color="#0f172a" flood-opacity="0.2" />
+                <feDropShadow dx="0" dy="15" stdDeviation="20" floodColor="#0f172a" floodOpacity="0.2" />
               </filter>
               <filter id="shadow-node" x="-30%" y="-30%" width="160%" height="160%">
-                <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#5c4a3c" flood-opacity="0.1" />
+                <feDropShadow dx="0" dy="8" stdDeviation="12" floodColor="#5c4a3c" floodOpacity="0.1" />
               </filter>
 
               <filter id="glow-gold" x="-30%" y="-30%" width="160%" height="160%">
@@ -108,21 +108,21 @@ export default function HeroSection() {
               </filter>
 
               <linearGradient id="monolith-metal" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#1e293b" />
-                <stop offset="50%" stop-color="#0f172a" />
-                <stop offset="100%" stop-color="#020617" />
+                <stop offset="0%" stopColor="#1e293b" />
+                <stop offset="50%" stopColor="#0f172a" />
+                <stop offset="100%" stopColor="#020617" />
               </linearGradient>
               <linearGradient id="gold-glow-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#f59e0b" />
-                <stop offset="100%" stop-color="#d97706" />
+                <stop offset="0%" stopColor="#f59e0b" />
+                <stop offset="100%" stopColor="#d97706" />
               </linearGradient>
               <linearGradient id="crimson-core-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#dc2626" />
-                <stop offset="100%" stop-color="#991b1b" />
+                <stop offset="0%" stopColor="#dc2626" />
+                <stop offset="100%" stopColor="#991b1b" />
               </linearGradient>
               <radialGradient id="node-cream-grad" cx="50%" cy="30%" r="70%">
-                <stop offset="0%" stop-color="#ffffff" />
-                <stop offset="100%" stop-color="#f8f6f0" />
+                <stop offset="0%" stopColor="#ffffff" />
+                <stop offset="100%" stopColor="#f8f6f0" />
               </radialGradient>
             </defs>
             
@@ -132,12 +132,12 @@ export default function HeroSection() {
               <g className="hero-monolith-group" transform="translate(400, 240)">
                 
                 {/* 4 Distinct SVG Polygons/Paths that form the monolith */}
-                <path className="monolith-block frag-top" d="M 0 0 L -115 -103 C -115 -109.6 -109.6 -115 -103 -115 L 103 -115 C 109.6 -115 115 -109.6 115 -103 Z" fill="url(#monolith-metal)" stroke="url(#gold-glow-grad)" stroke-width="2.5" filter="url(#shadow-monolith)" />
-                <path className="monolith-block frag-right" d="M 0 0 L 115 -103 L 115 103 C 115 109.6 109.6 115 103 115 Z" fill="url(#monolith-metal)" stroke="url(#gold-glow-grad)" stroke-width="2.5" filter="url(#shadow-monolith)" />
-                <path className="monolith-block frag-bottom" d="M 0 0 L 103 115 L -103 115 C -109.6 115 -115 109.6 -115 103 Z" fill="url(#monolith-metal)" stroke="url(#gold-glow-grad)" stroke-width="2.5" filter="url(#shadow-monolith)" />
-                <path className="monolith-block frag-left" d="M 0 0 L -115 103 L -115 -103 Z" fill="url(#monolith-metal)" stroke="url(#gold-glow-grad)" stroke-width="2.5" filter="url(#shadow-monolith)" />
+                <path className="monolith-block frag-top" d="M 0 0 L -115 -103 C -115 -109.6 -109.6 -115 -103 -115 L 103 -115 C 109.6 -115 115 -109.6 115 -103 Z" fill="url(#monolith-metal)" stroke="url(#gold-glow-grad)" strokeWidth="2.5" filter="url(#shadow-monolith)" />
+                <path className="monolith-block frag-right" d="M 0 0 L 115 -103 L 115 103 C 115 109.6 109.6 115 103 115 Z" fill="url(#monolith-metal)" stroke="url(#gold-glow-grad)" strokeWidth="2.5" filter="url(#shadow-monolith)" />
+                <path className="monolith-block frag-bottom" d="M 0 0 L 103 115 L -103 115 C -109.6 115 -115 109.6 -115 103 Z" fill="url(#monolith-metal)" stroke="url(#gold-glow-grad)" strokeWidth="2.5" filter="url(#shadow-monolith)" />
+                <path className="monolith-block frag-left" d="M 0 0 L -115 103 L -115 -103 Z" fill="url(#monolith-metal)" stroke="url(#gold-glow-grad)" strokeWidth="2.5" filter="url(#shadow-monolith)" />
 
-                <rect className="monolith-inner" x="-100" y="-100" width="200" height="200" rx="8" fill="none" stroke="rgba(245, 158, 11, 0.15)" stroke-width="1.5" style={{ pointerEvents: 'none' }} />
+                <rect className="monolith-inner" x="-100" y="-100" width="200" height="200" rx="8" fill="none" stroke="rgba(245, 158, 11, 0.15)" strokeWidth="1.5" style={{ pointerEvents: 'none' }} />
                 <text className="monolith-label" y="0">AI CAPACITY</text>
                 <text className="monolith-sublabel" y="30">MONOLITH</text>
                 
@@ -159,7 +159,7 @@ export default function HeroSection() {
               
               {/* Core Node */}
               <circle cx="400" cy="300" r="50" className="node-circle core" fill="url(#crimson-core-grad)" filter="url(#shadow-node)" />
-              <circle cx="400" cy="300" r="50" className="node-circle-glow" fill="none" stroke="#dc2626" stroke-width="2" filter="url(#glow-crimson)" opacity="0.6" />
+              <circle cx="400" cy="300" r="50" className="node-circle-glow" fill="none" stroke="#dc2626" strokeWidth="2" filter="url(#glow-crimson)" opacity="0.6" />
               <text className="node-text core-lbl-1" x="400" y="295">Capacity to Benefit</text>
               <text className="node-text core-lbl-2" x="400" y="312">from AI</text>
               

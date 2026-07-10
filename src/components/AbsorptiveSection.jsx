@@ -97,14 +97,14 @@ export default function AbsorptiveSection() {
           <svg viewBox="0 0 800 600" width="100%" height="100%">
             <defs>
               <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-                <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#e4dad0" stroke-width="0.5" />
+                <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#e4dad0" strokeWidth="0.5" />
               </pattern>
               
               <filter id="shadow-node" x="-30%" y="-30%" width="160%" height="160%">
-                <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#5c4a3c" flood-opacity="0.1" />
+                <feDropShadow dx="0" dy="8" stdDeviation="12" floodColor="#5c4a3c" floodOpacity="0.1" />
               </filter>
               <filter id="shadow-monolith" x="-20%" y="-20%" width="140%" height="140%">
-                <feDropShadow dx="0" dy="15" stdDeviation="20" flood-color="#0f172a" flood-opacity="0.2" />
+                <feDropShadow dx="0" dy="15" stdDeviation="20" floodColor="#0f172a" floodOpacity="0.2" />
               </filter>
               <filter id="glow-crimson" x="-30%" y="-30%" width="160%" height="160%">
                 <feGaussianBlur stdDeviation="8" result="blur" />
@@ -115,14 +115,14 @@ export default function AbsorptiveSection() {
               </filter>
 
               <linearGradient id="pipe-tube-grad" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stop-color="#e2dad0" />
-                <stop offset="30%" stop-color="#ffffff" />
-                <stop offset="70%" stop-color="#ffffff" />
-                <stop offset="100%" stop-color="#d3c8bc" />
+                <stop offset="0%" stopColor="#e2dad0" />
+                <stop offset="30%" stopColor="#ffffff" />
+                <stop offset="70%" stopColor="#ffffff" />
+                <stop offset="100%" stopColor="#d3c8bc" />
               </linearGradient>
               <radialGradient id="node-cream-grad" cx="50%" cy="30%" r="70%">
-                <stop offset="0%" stop-color="#ffffff" />
-                <stop offset="100%" stop-color="#f8f6f0" />
+                <stop offset="0%" stopColor="#ffffff" />
+                <stop offset="100%" stopColor="#f8f6f0" />
               </radialGradient>
               <filter id="glow-blue" x="-40%" y="-40%" width="180%" height="180%">
                 <feGaussianBlur stdDeviation="8" result="blur" />
@@ -137,14 +137,14 @@ export default function AbsorptiveSection() {
             
             <g className="pipeline-group">
               {/* Connective Glass Pipeline Shaft */}
-              <rect x="388" y="60" width="24" height="480" rx="12" fill="url(#pipe-tube-grad)" stroke="#d3c8bc" stroke-width="1.5" />
+              <rect x="388" y="60" width="24" height="480" rx="12" fill="url(#pipe-tube-grad)" stroke="#d3c8bc" strokeWidth="1.5" />
               <rect x="396" y="60" width="8" height="480" fill="#ffffff" opacity="0.5" style={{ pointerEvents: 'none' }} />
               
               {/* Stages */}
               {/* Stage 1: Recognize */}
               <g className="pipe-stage stage-1" transform="translate(400, 150)">
-                <circle r="44" className="stage-circle" fill="url(#node-cream-grad)" stroke="#e4dad0" stroke-width="2" filter="url(#shadow-node)" />
-                <circle r="44" className="stage-circle-glow" fill="none" stroke="#1c3d4a" stroke-width="2.5" style={{ opacity: 0 }} filter="url(#glow-blue)" />
+                <circle r="44" className="stage-circle" fill="url(#node-cream-grad)" stroke="#e4dad0" strokeWidth="2" filter="url(#shadow-node)" />
+                <circle r="44" className="stage-circle-glow" fill="none" stroke="#1c3d4a" strokeWidth="2.5" style={{ opacity: 0 }} filter="url(#glow-blue)" />
                 <text className="stage-num" y="-5">01</text>
                 <text className="stage-title" y="15">RECOGNIZE</text>
                 <text className="stage-sub" y="70">Value external AI systems</text>
@@ -152,8 +152,8 @@ export default function AbsorptiveSection() {
 
               {/* Stage 2: Assimilate */}
               <g className="pipe-stage stage-2" transform="translate(400, 300)">
-                <circle r="44" className="stage-circle" fill="url(#node-cream-grad)" stroke="#e4dad0" stroke-width="2" filter="url(#shadow-node)" />
-                <circle r="44" className="stage-circle-glow" fill="none" stroke="#1c3d4a" stroke-width="2.5" style={{ opacity: 0 }} filter="url(#glow-blue)" />
+                <circle r="44" className="stage-circle" fill="url(#node-cream-grad)" stroke="#e4dad0" strokeWidth="2" filter="url(#shadow-node)" />
+                <circle r="44" className="stage-circle-glow" fill="none" stroke="#1c3d4a" strokeWidth="2.5" style={{ opacity: 0 }} filter="url(#glow-blue)" />
                 <text className="stage-num" y="-5">02</text>
                 <text className="stage-title" y="15">ASSIMILATE</text>
                 <text className="stage-sub" y="70">Integrate into routines & tech</text>
@@ -161,8 +161,8 @@ export default function AbsorptiveSection() {
 
               {/* Stage 3: Apply */}
               <g className="pipe-stage stage-3" transform="translate(400, 450)">
-                <circle r="44" className="stage-circle" fill="url(#node-cream-grad)" stroke="#e4dad0" stroke-width="2" filter="url(#shadow-node)" />
-                <circle r="44" className="stage-circle-glow" fill="none" stroke="#1c3d4a" stroke-width="2.5" style={{ opacity: 0 }} filter="url(#glow-blue)" />
+                <circle r="44" className="stage-circle" fill="url(#node-cream-grad)" stroke="#e4dad0" strokeWidth="2" filter="url(#shadow-node)" />
+                <circle r="44" className="stage-circle-glow" fill="none" stroke="#1c3d4a" strokeWidth="2.5" style={{ opacity: 0 }} filter="url(#glow-blue)" />
                 <text className="stage-num" y="-5">03</text>
                 <text className="stage-title" y="15">APPLY</text>
                 <text className="stage-sub" y="70">Deploy to productive ends</text>
@@ -178,7 +178,7 @@ export default function AbsorptiveSection() {
               </g>
 
               {/* Feedback Arrow */}
-              <path d="M 444 450 C 564 450 564 150 444 150" className="feedback-path" fill="none" stroke="#b28d46" stroke-width="2" stroke-dasharray="6 6" style={{ strokeDasharray: 400, strokeDashoffset: 400, opacity: 0 }} />
+              <path d="M 444 450 C 564 450 564 150 444 150" className="feedback-path" fill="none" stroke="#b28d46" strokeWidth="2" strokeDasharray="6 6" style={{ strokeDasharray: 400, strokeDashoffset: 400, opacity: 0 }} />
               <path d="M 446 144 L 434 150 L 446 156 Z" className="feedback-arrow" fill="#b28d46" style={{ opacity: 0 }} />
               <text x="525" y="300" className="feedback-label" fill="#b28d46" transform="rotate(90, 525, 300)" style={{ opacity: 0 }}>Feedback & Learning Loop</text>
             </g>
