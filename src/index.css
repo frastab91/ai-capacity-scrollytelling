@@ -482,6 +482,7 @@ body {
 .pathway-tree,
 .safeguards-nested-layers {
   transform-origin: 400px 300px;
+  transform-box: view-box;
 }
 
 /* Base styles for nodes */
