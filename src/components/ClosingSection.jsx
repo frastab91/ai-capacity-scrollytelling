@@ -123,7 +123,7 @@ const ClosingSection = ({ isActive }) => {
         <path d="M 400 600 C 400 480, 200 450, 100 340" className="future-path" stroke="#b28d46" strokeWidth="1.5" fill="none" opacity="0.6" style={{ transition: 'none' }} />
         <path d="M 400 600 C 400 450, 300 400, 250 340" className="future-path" stroke="#b28d46" strokeWidth="1.5" fill="none" opacity="0.6" style={{ transition: 'none' }} />
         <path d="M 400 600 C 400 400, 400 400, 400 340" className="future-path" stroke="#b28d46" strokeWidth="1.5" fill="none" opacity="0.6" style={{ transition: 'none' }} />
-        <path d="M 400 600 C 400 450, 500 400, 550 340" className="future-path" stroke="#b28d46" stroke-width="1.5" fill="none" opacity="0.6" style={{ transition: 'none' }} />
+        <path d="M 400 600 C 400 450, 500 400, 550 340" className="future-path" stroke="#b28d46" strokeWidth="1.5" fill="none" opacity="0.6" style={{ transition: 'none' }} />
         <path d="M 400 600 C 400 480, 600 450, 700 340" className="future-path" stroke="#b28d46" strokeWidth="1.5" fill="none" opacity="0.6" style={{ transition: 'none' }} />
         
         {/* Overlapping Editorial Vector Hills */}
