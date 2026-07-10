@@ -62,14 +62,14 @@ export default function HeroSection() {
       0.55
     );
 
-    // 4. Text Header "NOT" dynamic expansion (starts at 48% scroll)
+    // 4. Text Header "NOT" dynamic expansion (starts at 75% scroll)
     tl.to('.not-span', {
-      width: '56px',
+      width: '80px',
       opacity: 1,
       margin: '0 8px',
       duration: 0.3,
       ease: 'power2.out'
-    }, 0.48);
+    }, 0.75);
 
   }, { scope: containerRef });
 
@@ -129,7 +129,7 @@ export default function HeroSection() {
             <rect width="100%" height="100%" fill="url(#grid)" opacity="0.5" />
             
             <g className="hero-monolith-shake-wrapper">
-              <g className="hero-monolith-group" transform="translate(400, 240)">
+              <g className="hero-monolith-group" transform="translate(400, 300) scale(2.35)">
                 
                 {/* 4 Distinct SVG Polygons/Paths that form the monolith */}
                 <path className="monolith-block frag-top" d="M 0 0 L -115 -103 C -115 -109.6 -109.6 -115 -103 -115 L 103 -115 C 109.6 -115 115 -109.6 115 -103 Z" fill="url(#monolith-metal)" stroke="url(#gold-glow-grad)" strokeWidth="2.5" filter="url(#shadow-monolith)" />
@@ -158,8 +158,8 @@ export default function HeroSection() {
               <line x1="400" y1="300" x2="220" y2="230" className="const-link link-5" />
               
               {/* Core Node */}
-              <circle cx="400" cy="300" r="50" className="node-circle core" fill="url(#crimson-core-grad)" filter="url(#shadow-node)" />
-              <circle cx="400" cy="300" r="50" className="node-circle-glow" fill="none" stroke="#dc2626" strokeWidth="2" filter="url(#glow-crimson)" opacity="0.6" />
+              <circle cx="400" cy="300" r="65" className="node-circle core" fill="url(#crimson-core-grad)" filter="url(#shadow-node)" />
+              <circle cx="400" cy="300" r="65" className="node-circle-glow" fill="none" stroke="#dc2626" strokeWidth="2" filter="url(#glow-crimson)" opacity="0.6" />
               <text className="node-text core-lbl-1" x="400" y="295">Capacity to Benefit</text>
               <text className="node-text core-lbl-2" x="400" y="312">from AI</text>
               

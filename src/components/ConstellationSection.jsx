@@ -103,7 +103,7 @@ const ConstellationSection = ({ isActive, selectedNode, setSelectedNode }) => {
 
         <rect width="100%" height="100%" fill="url(#grid-const)" opacity="0.5" />
         
-        <g className="active-constellation" transform="translate(400, 240)">
+        <g className="active-constellation" transform="translate(400, 300)">
           {/* Connecting links */}
           {nodes.map((node) => {
             const isLinkActive = selectedNode === node.id;
@@ -129,12 +129,16 @@ const ConstellationSection = ({ isActive, selectedNode, setSelectedNode }) => {
           />
           
           {/* Core Node (Glowing Center) */}
-          <g className="const-node core-interactive" filter="url(#shadow-node-const)">
-            <circle cx="0" cy="0" r="54" className="node-circle core" fill="url(#crimson-core-grad-const)" />
+          <g 
+            className={`const-node core-interactive n-capacity ${selectedNode === 'capacity' ? 'active' : ''}`}
+            filter="url(#shadow-node-const)"
+            onClick={(e) => handleNodeClick(e, 'capacity')}
+          >
+            <circle cx="0" cy="0" r="65" className="node-circle core" fill="url(#crimson-core-grad-const)" />
             <circle 
               cx="0" 
               cy="0" 
-              r="54" 
+              r="65" 
               className="node-circle-glow" 
               fill="none" 
               stroke="#dc2626" 

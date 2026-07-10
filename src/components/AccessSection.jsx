@@ -20,63 +20,63 @@ export default function AccessSection() {
 
     // Initial state: Door panels are in the center, glow classes are removed, room is hidden/scaled down.
     // 1. Sequential Door Splitting (First 60% of scroll)
-    // Panel 1: Connectivity & Hardware slides top-left (time: 0.05 to 0.3)
+    // Panel 1: Connectivity & Hardware slides top-left (time: 0.1 to 0.35)
     tl.to('.connectivity-panel', {
       x: -85,
       y: -75,
       scale: 0.9,
       duration: 0.25,
       ease: 'power1.out'
-    }, 0.05);
-    tl.to('.connectivity-panel .panel-rect', { fill: 'hsla(40, 10%, 100%, 0.85)', stroke: '#b28d46', strokeWidth: 2.5, duration: 0.05 }, 0.1)
-      .to('.connectivity-panel .panel-border-glow', { opacity: 1, duration: 0.05 }, 0.1)
-      .to('.connectivity-panel .panel-icon', { stroke: '#b28d46', duration: 0.05 }, 0.1)
-      .to('.connectivity-panel .panel-text', { fill: '#1c3d4a', duration: 0.05 }, 0.1);
+    }, 0.1);
+    tl.to('.connectivity-panel .panel-rect', { fill: 'hsla(40, 10%, 100%, 0.85)', stroke: '#b28d46', strokeWidth: 2.5, duration: 0.05 }, 0.15)
+      .to('.connectivity-panel .panel-border-glow', { opacity: 1, duration: 0.05 }, 0.15)
+      .to('.connectivity-panel .panel-icon', { stroke: '#b28d46', duration: 0.05 }, 0.15)
+      .to('.connectivity-panel .panel-text', { fill: '#1c3d4a', duration: 0.05 }, 0.15);
 
-    // Panel 2: Models & Tools slides right (time: 0.2 to 0.45)
+    // Panel 2: Models & Tools slides right (time: 0.38 to 0.63)
     tl.to('.models-panel', {
       x: 85,
       scale: 0.9,
       duration: 0.25,
       ease: 'power1.out'
-    }, 0.2);
-    tl.to('.models-panel .panel-rect', { fill: 'hsla(40, 10%, 100%, 0.85)', stroke: '#b28d46', strokeWidth: 2.5, duration: 0.05 }, 0.25)
-      .to('.models-panel .panel-border-glow', { opacity: 1, duration: 0.05 }, 0.25)
-      .to('.models-panel .panel-icon-node', { attr: { r: 5.5 }, duration: 0.05 }, 0.25)
-      .to('.models-panel .panel-text', { fill: '#1c3d4a', duration: 0.05 }, 0.25);
+    }, 0.38);
+    tl.to('.models-panel .panel-rect', { fill: 'hsla(40, 10%, 100%, 0.85)', stroke: '#b28d46', strokeWidth: 2.5, duration: 0.05 }, 0.43)
+      .to('.models-panel .panel-border-glow', { opacity: 1, duration: 0.05 }, 0.43)
+      .to('.models-panel .panel-icon-node', { attr: { r: 5.5 }, duration: 0.05 }, 0.43)
+      .to('.models-panel .panel-text', { fill: '#1c3d4a', duration: 0.05 }, 0.43);
 
-    // Panel 3: Data Assets slides bottom-left (time: 0.35 to 0.6)
+    // Panel 3: Data Assets slides bottom-left (time: 0.68 to 0.93)
     tl.to('.data-panel', {
       x: -85,
       y: 75,
       scale: 0.9,
       duration: 0.25,
       ease: 'power1.out'
-    }, 0.35);
-    tl.to('.data-panel .panel-rect', { fill: 'hsla(40, 10%, 100%, 0.85)', stroke: '#b28d46', strokeWidth: 2.5, duration: 0.05 }, 0.4)
-      .to('.data-panel .panel-border-glow', { opacity: 1, duration: 0.05 }, 0.4)
-      .to('.data-panel .panel-icon', { stroke: '#b28d46', duration: 0.05 }, 0.4)
-      .to('.data-panel .panel-text', { fill: '#1c3d4a', duration: 0.05 }, 0.4);
+    }, 0.68);
+    tl.to('.data-panel .panel-rect', { fill: 'hsla(40, 10%, 100%, 0.85)', stroke: '#b28d46', strokeWidth: 2.5, duration: 0.05 }, 0.73)
+      .to('.data-panel .panel-border-glow', { opacity: 1, duration: 0.05 }, 0.73)
+      .to('.data-panel .panel-icon', { stroke: '#b28d46', duration: 0.05 }, 0.73)
+      .to('.data-panel .panel-text', { fill: '#1c3d4a', duration: 0.05 }, 0.73);
 
-    // 2. Door Receding & Room Wireframe Zoom In (from 60% to 100% scroll)
+    // 2. Door Receding & Room Wireframe Zoom In (from 82% to 100% scroll)
     tl.to('.door-frame-group', {
       scale: 0.65,
-      opacity: 0.1,
-      duration: 0.4,
+      opacity: 0,
+      duration: 0.18,
       ease: 'power1.inOut'
-    }, 0.6)
+    }, 0.82)
     .to('.door-panels', {
       scale: 0.65,
-      opacity: 0.1,
-      duration: 0.4,
+      opacity: 0,
+      duration: 0.18,
       ease: 'power1.inOut'
-    }, 0.6)
+    }, 0.82)
     .to('.room-wireframe', {
       opacity: 1,
       scale: 1.25,
-      duration: 0.4,
+      duration: 0.18,
       ease: 'power1.inOut'
-    }, 0.6);
+    }, 0.82);
 
   }, { scope: containerRef });
 

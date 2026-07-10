@@ -1,6 +1,11 @@
 import React, { useEffect, useRef } from 'react';
 
 const nodeData = {
+  capacity: {
+    title: "AI Benefit Capacity",
+    desc: "The overarching ability of a system or community to self-determine its technological future and equitably distribute AI benefits across all other dimensions.",
+    example: "Example: Reclaiming agency from external technological monopolies by fostering local access, skills, generation, safeguarding, and infrastructure."
+  },
   access: {
     title: "Access to AI Resources",
     desc: "Provides the foundational infrastructure (compute, connectivity, models, datasets) necessary to participate in the AI ecosystem.",
@@ -68,7 +73,7 @@ const HUD = ({ selectedNode, setSelectedNode, selectedPathway, setSelectedPathwa
         selectedNode &&
         constellationRef.current &&
         !constellationRef.current.contains(e.target) &&
-        !e.target.closest('.outer-interactive') // Don't close if we clicked an interactive node itself!
+        !e.target.closest('.const-node') // Don't close if we clicked an interactive node itself!
       ) {
         setSelectedNode(null);
       }
