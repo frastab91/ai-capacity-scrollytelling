@@ -64,7 +64,7 @@ export default function HeroSection() {
 
     // 4. Text Header "NOT" dynamic expansion (starts at 48% scroll)
     tl.to('.not-span', {
-      width: '42px',
+      width: '56px',
       opacity: 1,
       margin: '0 8px',
       duration: 0.3,
@@ -220,7 +220,8 @@ export default function HeroSection() {
                   opacity: 0, 
                   overflow: 'hidden', 
                   whiteSpace: 'nowrap', 
-                  color: 'var(--color-accent)', 
+                  color: 'var(--color-accent)',
+                  paddingRight: '6px', 
                   fontWeight: '800' 
                 }}
               >

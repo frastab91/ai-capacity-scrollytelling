@@ -8,13 +8,15 @@ import path from 'path';
     headless: true,
   });
   const page = await browser.newPage();
+  page.on('console', msg => console.log('PAGE LOG:', msg.text()));
+  page.on('pageerror', err => console.error('PAGE ERROR:', err.message));
   
   // Set viewport to mobile (iPhone 12/13/14 Pro dimensions)
   await page.setViewport({ width: 390, height: 844, deviceScaleFactor: 2 });
   
-  console.log('Navigating to http://localhost:3001/...');
+  console.log('Navigating to http://127.0.0.1:3001/...');
   try {
-    await page.goto('http://localhost:3001/', { waitUntil: 'networkidle2' });
+    await page.goto('http://127.0.0.1:3001/', { waitUntil: 'networkidle2' });
   } catch (err) {
     console.error('Failed to connect to dev server. Make sure Vite is running on port 3001.', err);
     await browser.close();

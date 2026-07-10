@@ -19,7 +19,10 @@ export default function AbsorptiveSection() {
     });
 
     // 1. Stage 1 (Recognize) scales, glows, and Particle 1 (red) moves from cy 60 down to cy 150
-    tl.to('.stage-1', { className: '+=active', duration: 0.15 }, 0.05);
+    tl.to('.stage-1 .stage-circle', { fill: '#1c3d4a', stroke: '#1c3d4a', duration: 0.15 }, 0.05)
+      .to('.stage-1 .stage-circle-glow', { opacity: 1, duration: 0.15 }, 0.05)
+      .to('.stage-1 .stage-num', { fill: '#ffffff', duration: 0.15 }, 0.05)
+      .to('.stage-1 .stage-title', { fill: '#b28d46', duration: 0.15 }, 0.05);
     tl.to('.stage-1', { scale: 1.15, duration: 0.15, ease: 'power1.out' }, 0.05);
     tl.to('.stage-1', { scale: 1.0, duration: 0.1 }, 0.2); // Settle but stay active
     tl.fromTo('.p1', 
@@ -29,7 +32,10 @@ export default function AbsorptiveSection() {
     );
 
     // 2. Stage 2 (Assimilate) scales, glows, and Particles 2 & 3 flow down from cy 150 to cy 300
-    tl.to('.stage-2', { className: '+=active', duration: 0.15 }, 0.3);
+    tl.to('.stage-2 .stage-circle', { fill: '#1c3d4a', stroke: '#1c3d4a', duration: 0.15 }, 0.3)
+      .to('.stage-2 .stage-circle-glow', { opacity: 1, duration: 0.15 }, 0.3)
+      .to('.stage-2 .stage-num', { fill: '#ffffff', duration: 0.15 }, 0.3)
+      .to('.stage-2 .stage-title', { fill: '#b28d46', duration: 0.15 }, 0.3);
     tl.to('.stage-2', { scale: 1.15, duration: 0.15, ease: 'power1.out' }, 0.3);
     tl.to('.stage-2', { scale: 1.0, duration: 0.1 }, 0.45);
     
@@ -45,7 +51,10 @@ export default function AbsorptiveSection() {
     );
 
     // 3. Stage 3 (Apply) scales, glows, and Particles 4 & 5 flow down from cy 300 to cy 450
-    tl.to('.stage-3', { className: '+=active', duration: 0.15 }, 0.55);
+    tl.to('.stage-3 .stage-circle', { fill: '#1c3d4a', stroke: '#1c3d4a', duration: 0.15 }, 0.55)
+      .to('.stage-3 .stage-circle-glow', { opacity: 1, duration: 0.15 }, 0.55)
+      .to('.stage-3 .stage-num', { fill: '#ffffff', duration: 0.15 }, 0.55)
+      .to('.stage-3 .stage-title', { fill: '#b28d46', duration: 0.15 }, 0.55);
     tl.to('.stage-3', { scale: 1.15, duration: 0.15, ease: 'power1.out' }, 0.55);
     tl.to('.stage-3', { scale: 1.0, duration: 0.1 }, 0.7);
     

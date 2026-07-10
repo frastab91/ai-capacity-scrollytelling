@@ -28,7 +28,10 @@ export default function AccessSection() {
       duration: 0.25,
       ease: 'power1.out'
     }, 0.05);
-    tl.to('.connectivity-panel', { className: '+=active', duration: 0.05 }, 0.1);
+    tl.to('.connectivity-panel .panel-rect', { fill: 'hsla(40, 10%, 100%, 0.85)', stroke: '#b28d46', strokeWidth: 2.5, duration: 0.05 }, 0.1)
+      .to('.connectivity-panel .panel-border-glow', { opacity: 1, duration: 0.05 }, 0.1)
+      .to('.connectivity-panel .panel-icon', { stroke: '#b28d46', duration: 0.05 }, 0.1)
+      .to('.connectivity-panel .panel-text', { fill: '#1c3d4a', duration: 0.05 }, 0.1);
 
     // Panel 2: Models & Tools slides right (time: 0.2 to 0.45)
     tl.to('.models-panel', {
@@ -37,7 +40,10 @@ export default function AccessSection() {
       duration: 0.25,
       ease: 'power1.out'
     }, 0.2);
-    tl.to('.models-panel', { className: '+=active', duration: 0.05 }, 0.25);
+    tl.to('.models-panel .panel-rect', { fill: 'hsla(40, 10%, 100%, 0.85)', stroke: '#b28d46', strokeWidth: 2.5, duration: 0.05 }, 0.25)
+      .to('.models-panel .panel-border-glow', { opacity: 1, duration: 0.05 }, 0.25)
+      .to('.models-panel .panel-icon-node', { attr: { r: 5.5 }, duration: 0.05 }, 0.25)
+      .to('.models-panel .panel-text', { fill: '#1c3d4a', duration: 0.05 }, 0.25);
 
     // Panel 3: Data Assets slides bottom-left (time: 0.35 to 0.6)
     tl.to('.data-panel', {
@@ -47,7 +53,10 @@ export default function AccessSection() {
       duration: 0.25,
       ease: 'power1.out'
     }, 0.35);
-    tl.to('.data-panel', { className: '+=active', duration: 0.05 }, 0.4);
+    tl.to('.data-panel .panel-rect', { fill: 'hsla(40, 10%, 100%, 0.85)', stroke: '#b28d46', strokeWidth: 2.5, duration: 0.05 }, 0.4)
+      .to('.data-panel .panel-border-glow', { opacity: 1, duration: 0.05 }, 0.4)
+      .to('.data-panel .panel-icon', { stroke: '#b28d46', duration: 0.05 }, 0.4)
+      .to('.data-panel .panel-text', { fill: '#1c3d4a', duration: 0.05 }, 0.4);
 
     // 2. Door Receding & Room Wireframe Zoom In (from 60% to 100% scroll)
     tl.to('.door-frame-group', {

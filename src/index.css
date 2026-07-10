@@ -1062,3 +1062,41 @@ body {
     display: block;
   }
 }
+
+
+/* QA Visual Audit Mobile Overrides */
+@media (max-width: 767px) {
+  body:has(.node-hud-card.visible) .step-card,
+  body:has(.vignette-hud-card.visible) .step-card {
+    opacity: 0 !important;
+    pointer-events: none;
+    transform: translateY(20px) !important;
+  }
+  .closing-card {
+    padding: 2.5rem 1.5rem !important;
+  }
+  .closing-quote {
+    font-size: 1.45rem !important;
+    line-height: 1.4 !important;
+    margin-bottom: 1.5rem !important;
+  }
+  .closing-byline {
+    margin-bottom: 2.5rem !important;
+    font-size: 0.8rem !important;
+  }
+  .panel-text {
+    font-size: 9px !important;
+  }
+  .stage-title {
+    font-size: 9px !important;
+  }
+  .node-text.label {
+    font-size: 11px !important;
+  }
+  .term-label {
+    font-size: 9px !important;
+  }
+  .room-label {
+    font-size: 12px !important;
+  }
+}
