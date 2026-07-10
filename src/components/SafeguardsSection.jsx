@@ -19,9 +19,10 @@ const SafeguardsSection = ({ isActive }) => {
     gsap.set('.deflect-label.dl1', { opacity: 0 });
     gsap.set('.deflect-label.dl2', { opacity: 0 });
 
+    const triggerEl = document.querySelector('.step[data-step="safeguards-layers"]');
     const tl = gsap.timeline({
       scrollTrigger: {
-        trigger: '.step[data-step="safeguards-layers"]',
+        trigger: triggerEl,
         start: 'top 75%',
         end: 'bottom 15%',
         scrub: 0.5,

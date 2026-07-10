@@ -13,9 +13,10 @@ const AgencySection = ({ isActive, selectedPathway, setSelectedPathway }) => {
     gsap.set('.branch-path', { strokeDasharray: 400, strokeDashoffset: 400 });
     gsap.set('.path-node', { scale: 0, opacity: 0, transformOrigin: 'center center' });
 
+    const triggerEl = document.querySelector('.step[data-step="agency-intro"]');
     const tl = gsap.timeline({
       scrollTrigger: {
-        trigger: '.step[data-step="agency-intro"]',
+        trigger: triggerEl,
         start: 'top 70%',
         end: 'bottom 30%',
         scrub: 0.5,

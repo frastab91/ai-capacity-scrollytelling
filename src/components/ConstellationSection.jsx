@@ -9,10 +9,11 @@ const ConstellationSection = ({ isActive, selectedNode, setSelectedNode }) => {
   const containerRef = useRef(null);
 
   useGSAP(() => {
+    const triggerEl = document.querySelector('.step[data-step="constellation-interactive"]');
     // Entrance timeline when scrolled into view
     const tl = gsap.timeline({
       scrollTrigger: {
-        trigger: '.step[data-step="constellation-interactive"]',
+        trigger: triggerEl,
         start: 'top 80%',
         toggleActions: 'play none none reverse',
       }

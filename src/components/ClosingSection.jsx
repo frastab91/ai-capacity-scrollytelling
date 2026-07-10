@@ -16,10 +16,11 @@ const ClosingSection = ({ isActive }) => {
     gsap.set('.sunrise-glow', { scale: 0.5, transformOrigin: 'center center' });
     gsap.set('.hill-layer', { y: 30 });
 
+    const triggerEl = document.querySelector('.step[data-step="closing-view"]');
     // Scroll-scrub timeline for the closing landscape
     const tl = gsap.timeline({
       scrollTrigger: {
-        trigger: '.step[data-step="closing-view"]',
+        trigger: triggerEl,
         start: 'top 80%',
         end: 'bottom 20%',
         scrub: 0.8,
