@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
       desc: "Actively challenging, auditing, or protesting harmful or misaligned AI deployments through regulatory or social mechanisms.",
       example: "Vignette: An independent labor union successfully auditing and legalizing the ban of a foreign automated worker surveillance system."
     },
-    "co-create": {
+    cocreate: {
       title: "Co-create",
       desc: "Developing new AI systems and governance frameworks hand-in-hand with local communities from inception.",
       example: "Vignette: Pastoralist communities collaborating with local tech graduates to co-build GPS-less water-well tracking AI."
@@ -209,7 +209,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const implodeProg = clamp(progress / 0.8, 0, 1);
         const monolithGroup = document.querySelector('.hero-monolith-group');
         if (monolithGroup) {
-          monolithGroup.style.transform = `translate(400px, 300px) scale(${1 - implodeProg})`;
+          monolithGroup.style.transform = `translate(400px, 240px) scale(${1 - implodeProg})`;
           monolithGroup.style.opacity = 1 - implodeProg;
         }
         
@@ -250,7 +250,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const panels = document.querySelector('.door-panels');
         if (room) {
           room.style.opacity = zoomProg;
-          room.style.transform = `translate(400px, 300px) scale(${0.5 + 0.5 * zoomProg})`;
+          room.style.transform = `translate(400px, 240px) scale(${0.5 + 0.5 * zoomProg})`;
         }
         if (frame && panels) {
           const opacityVal = 1 - (zoomProg * 0.85);
@@ -291,15 +291,27 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         break;
       }
+      case 'critique-receiver': {
+        const receiverGroup = document.querySelector('.receiver-panel-group');
+        const authorGroup = document.querySelector('.author-panel-group');
+        if (receiverGroup && authorGroup) {
+          receiverGroup.style.transform = 'translate(0, 0) scale(1)';
+          receiverGroup.style.opacity = 1;
+          authorGroup.style.transform = 'translate(80px, 40px) scale(0.85)';
+          authorGroup.style.opacity = 0;
+        }
+        break;
+      }
       case 'critique-author': {
-        const critiqueProg = clamp((progress - 0.2) / 0.6, 0, 1);
-        const receiver = document.querySelector('.receiver-panel');
-        const author = document.querySelector('.author-panel');
-        if (receiver && author) {
-          receiver.style.width = `${50 - critiqueProg * 25}%`;
-          receiver.style.opacity = 1 - critiqueProg * 0.7;
-          author.style.width = `${50 + critiqueProg * 25}%`;
-          author.style.opacity = 0.5 + critiqueProg * 0.5;
+        const critiqueProg = clamp((progress - 0.1) / 0.8, 0, 1);
+        const receiverGroup = document.querySelector('.receiver-panel-group');
+        const authorGroup = document.querySelector('.author-panel-group');
+        if (receiverGroup && authorGroup) {
+          receiverGroup.style.transform = `translate(${-critiqueProg * 80}px, 0) scale(${1 - critiqueProg * 0.15})`;
+          receiverGroup.style.opacity = 1 - critiqueProg * 0.75;
+          
+          authorGroup.style.transform = `translate(${80 - critiqueProg * 80}px, ${40 - critiqueProg * 40}px) scale(${0.85 + critiqueProg * 0.15})`;
+          authorGroup.style.opacity = critiqueProg;
         }
         break;
       }
@@ -316,7 +328,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const zoomProg = clamp((progress - 0.1) / 0.8, 0, 1);
         const layers = document.querySelector('.safeguards-nested-layers');
         if (layers) {
-          layers.style.transform = `translate(400px, 300px) scale(${2.8 - zoomProg * 1.8})`;
+          layers.style.transform = `translate(400px, 240px) scale(${2.8 - zoomProg * 1.8})`;
         }
         break;
       }
