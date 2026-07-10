@@ -1,0 +1,1064 @@
+/**
+ * Constellations of AI Capacity — Premium Editorial Design System
+ */
+
+:root {
+  /* HSL Color Palette - Curated Editorial Theme */
+  --h-bg: 40;
+  --s-bg: 33%;
+  --l-bg: 98%;
+  --color-bg: hsl(var(--h-bg), var(--s-bg), var(--l-bg)); /* Eggshell Warm Paper */
+  
+  --color-text: hsl(20, 10%, 10%); /* Charcoal/Black */
+  --color-text-muted: hsl(25, 8%, 40%); /* Editorial Muted Slate */
+  --color-border: hsl(35, 12%, 86%); /* Soft border rule */
+  
+  --color-accent: hsl(2, 64%, 43%); /* Rich Crimson */
+  --color-accent-blue: hsl(198, 45%, 20%); /* Deep Prussian Blue */
+  --color-accent-green: hsl(152, 40%, 30%); /* Soft Forest Green */
+  --color-gold: hsl(39, 53%, 52%); /* Warm Ochre/Gold */
+  
+  /* Typography */
+  --font-serif: "Lora", Georgia, serif;
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-serif);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  background-image: 
+    radial-gradient(rgba(178, 141, 70, 0.03) 1px, transparent 1px),
+    radial-gradient(rgba(178, 141, 70, 0.02) 1.5px, transparent 1.5px);
+  background-size: 40px 40px, 80px 80px;
+}
+
+/* 1. Progress Bar */
+.scroll-progress-indicator {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  width: 0%;
+  background-color: var(--color-accent);
+  z-index: 2000;
+  box-shadow: 0 1px 8px rgba(177, 42, 39, 0.3);
+}
+
+/* 2. Editorial Top Header */
+.editorial-header {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 4rem 2rem;
+  background-color: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+  position: relative;
+  z-index: 10;
+}
+
+.header-meta {
+  font-family: var(--font-sans);
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.22em;
+  color: var(--color-accent);
+  margin-bottom: 2.5rem;
+  font-weight: 700;
+}
+
+.header-meta .pub-date {
+  color: var(--color-text-muted);
+  margin-left: 1.5rem;
+  border-left: 1.5px solid var(--color-border);
+  padding-left: 1.5rem;
+}
+
+.header-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 6.5vw, 4.8rem);
+  font-weight: 700;
+  max-width: 1100px;
+  line-height: 1.15;
+  margin-bottom: 2.5rem;
+  color: var(--color-text);
+  letter-spacing: -0.02em;
+}
+
+.header-subtitle {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(1.2rem, 2.8vw, 1.8rem);
+  color: var(--color-text-muted);
+  max-width: 860px;
+  margin-bottom: 3.5rem;
+  line-height: 1.5;
+}
+
+.header-byline {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  padding: 0.9rem 2.5rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.header-byline .paper-title {
+  font-family: var(--font-serif);
+  font-style: italic;
+  text-transform: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.scroll-prompt {
+  position: absolute;
+  bottom: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  opacity: 0.85;
+}
+
+.scroll-text {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--color-text-muted);
+}
+
+.scroll-indicator {
+  width: 22px;
+  height: 36px;
+  border: 1.5px solid var(--color-text-muted);
+  border-radius: 12px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.scroll-dot {
+  width: 4px;
+  height: 7px;
+  background-color: var(--color-accent);
+  border-radius: 50%;
+  position: absolute;
+  top: 6px;
+  animation: scroll-dot-anim 1.8s infinite ease-in-out;
+}
+
+@keyframes scroll-dot-anim {
+  0% { transform: translateY(0); opacity: 0; }
+  20% { opacity: 1; }
+  80% { transform: translateY(12px); opacity: 0; }
+  100% { opacity: 0; }
+}
+
+/* 3. Scrollytelling Container Layout */
+.scrolly-container {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  background-color: var(--color-bg);
+}
+
+/* Sticky Graphic window */
+.sticky-graphic {
+  grid-column: 1;
+  grid-row: 1;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  z-index: 1;
+  background-color: var(--color-bg);
+  overflow: hidden;
+}
+
+.graphic-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  transform: translateY(-8vh);
+}
+
+.visual-section {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  transition: opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1), visibility 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.visual-section.active {
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
+}
+
+/* Scrolling Narrative Text */
+.scroll-narrative {
+  grid-column: 1;
+  grid-row: 1;
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  pointer-events: none;
+}
+
+.step {
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 0 1.5rem 8vh 1.5rem;
+  pointer-events: none;
+}
+
+/* Frosted Glassmorphism step cards */
+.step-card {
+  background-color: hsla(var(--h-bg), var(--s-bg), 99%, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid hsla(35, 10%, 80%, 0.35);
+  border-left: 4px solid var(--color-border);
+  border-radius: 12px;
+  padding: 2.2rem 2.5rem;
+  max-width: 480px;
+  width: 100%;
+  pointer-events: auto;
+  box-shadow: 
+    0 10px 40px rgba(92, 74, 60, 0.04),
+    0 1px 3px rgba(0, 0, 0, 0.02);
+  transition: 
+    border-color 0.4s cubic-bezier(0.25, 1, 0.5, 1), 
+    transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), 
+    box-shadow 0.4s cubic-bezier(0.25, 1, 0.5, 1), 
+    opacity 0.4s ease;
+  opacity: 0.25;
+}
+
+.step.active-step .step-card {
+  border-left-color: var(--color-accent);
+  opacity: 1;
+  transform: translateY(-6px);
+  box-shadow: 
+    0 20px 50px rgba(92, 74, 60, 0.12),
+    0 1px 8px rgba(92, 74, 60, 0.04);
+}
+
+.step-tag {
+  font-family: var(--font-sans);
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  color: var(--color-accent);
+  font-weight: 700;
+  display: block;
+  margin-bottom: 0.6rem;
+}
+
+.step-heading {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  margin-bottom: 1.2rem;
+  line-height: 1.25;
+  color: var(--color-text);
+}
+
+.step-card p {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  margin-bottom: 1rem;
+}
+
+.step-card p:last-child {
+  margin-bottom: 0;
+}
+
+.step-card strong {
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+/* Closing/Credits Step (Full opacity) */
+.text-only-step {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-bg);
+  z-index: 150;
+  position: relative;
+  border-top: 1px solid var(--color-border);
+}
+
+.closing-card {
+  max-width: 760px;
+  border: 1px solid var(--color-border);
+  border-top: 4px solid var(--color-accent);
+  text-align: center;
+  padding: 4rem 3rem;
+  background-color: #fff;
+  opacity: 1 !important;
+  box-shadow: 0 20px 50px rgba(92, 74, 60, 0.07);
+}
+
+.closing-quote {
+  font-family: var(--font-display);
+  font-size: 2.1rem;
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1.45;
+  margin-bottom: 2rem;
+  color: var(--color-text);
+  letter-spacing: -0.01em;
+}
+
+.closing-byline {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--color-text-muted);
+  margin-bottom: 3.5rem;
+  font-weight: 600;
+}
+
+.editorial-btn {
+  font-family: var(--font-sans);
+  background-color: var(--color-text);
+  color: var(--color-bg);
+  border: 1px solid var(--color-text);
+  padding: 1rem 2.2rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  cursor: pointer;
+  border-radius: 4px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.editorial-btn:hover {
+  background-color: transparent;
+  color: var(--color-text);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.editorial-btn:active {
+  transform: translateY(1px);
+}
+
+/* 4. Interactive Details HUD panel (Premium Glassmorphism Overlay) */
+.node-hud-card,
+.vignette-hud-card {
+  position: fixed;
+  bottom: 2rem;
+  left: 1.5rem;
+  right: 1.5rem;
+  background-color: hsla(var(--h-bg), var(--s-bg), 99%, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid hsla(35, 10%, 80%, 0.4);
+  border-top: 4px solid var(--color-accent-blue);
+  padding: 1.8rem 2.2rem;
+  border-radius: 8px;
+  box-shadow: 
+    0 25px 60px rgba(92, 74, 60, 0.18),
+    0 2px 10px rgba(0, 0, 0, 0.02);
+  transform: translateY(20px);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s ease;
+  z-index: 1001;
+}
+
+.node-hud-card.visible,
+.vignette-hud-card.visible {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.hud-close {
+  position: absolute;
+  top: 0.8rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  font-weight: 300;
+  line-height: 1;
+  cursor: pointer;
+  color: var(--color-text-muted);
+  transition: color 0.2s ease;
+}
+
+.hud-close:hover {
+  color: var(--color-accent);
+}
+
+.hud-title {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0.6rem;
+  color: var(--color-accent-blue);
+}
+
+.hud-desc {
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  margin-bottom: 0.8rem;
+  line-height: 1.55;
+}
+
+.hud-example {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  color: var(--color-accent);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.interactive-hint {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  fill: var(--color-text-muted);
+  text-anchor: middle;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-weight: 600;
+  opacity: 0.8;
+}
+
+/* ==========================================================================
+   SVG VISUAL GRAPHICS DESIGN SYSTEM
+   ========================================================================== */
+
+/* Hoist centers of all moving layout groups */
+.hero-monolith-shake-wrapper,
+.hero-monolith-group,
+.emerging-constellation,
+.room-wireframe,
+.door-frame-group,
+.door-panels,
+.pipeline-group,
+.active-constellation,
+.pathway-tree,
+.safeguards-nested-layers {
+  transform-origin: 400px 240px;
+}
+
+/* Base styles for nodes */
+.node-circle.core {
+  stroke-width: 1.5;
+  transition: filter 0.3s ease;
+}
+
+.node-circle.outer {
+  stroke-width: 1.5;
+  transition: stroke-width 0.3s ease, stroke 0.3s ease, fill 0.3s ease;
+}
+
+.node-circle-glow {
+  pointer-events: none;
+}
+
+.node-text {
+  font-family: var(--font-sans);
+  text-anchor: middle;
+  pointer-events: none;
+  user-select: none;
+}
+
+.node-text.core-lbl-1,
+.node-text.core-lbl-2 {
+  fill: #fff;
+  font-size: 9.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.node-text.label {
+  fill: var(--color-accent-blue);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.const-link {
+  stroke: var(--color-border);
+  stroke-width: 1.5;
+  stroke-dasharray: 6 6;
+  opacity: 0.6;
+  transition: stroke 0.4s ease, stroke-width 0.4s ease, opacity 0.4s ease;
+}
+
+/* SECTION 1: HERO MONOLITH SVG STYLING */
+.monolith-label {
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  font-weight: 800;
+  fill: #fff;
+  text-anchor: middle;
+  letter-spacing: 0.15em;
+  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.45);
+}
+
+.monolith-sublabel {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  fill: var(--color-gold);
+  text-anchor: middle;
+  letter-spacing: 0.35em;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+}
+
+.crack-path {
+  fill: none;
+  stroke-linecap: round;
+  stroke-dasharray: 300;
+  stroke-dashoffset: 300;
+  opacity: 0;
+  transition: stroke-dashoffset 0.1s linear, opacity 0.1s linear;
+}
+
+/* SECTION 2: ACCESS DOOR PANEL STYLING */
+.door-frame {
+  stroke-linejoin: round;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.panel-rect {
+  transition: fill 0.3s ease, stroke 0.3s ease, stroke-width 0.3s ease, box-shadow 0.3s ease;
+}
+
+.door-panel.active .panel-rect {
+  fill: hsla(var(--h-bg), 10%, 100%, 0.85);
+  stroke: var(--color-gold);
+  stroke-width: 2.5;
+  filter: drop-shadow(0 4px 15px rgba(178, 141, 70, 0.2));
+}
+
+.door-panel.active .panel-border-glow {
+  opacity: 1;
+  filter: url(#glow-gold);
+}
+
+.panel-icon {
+  fill: none;
+  stroke: var(--color-text-muted);
+  stroke-width: 2;
+  stroke-linecap: round;
+  transition: stroke 0.3s ease;
+}
+
+.door-panel.active .panel-icon {
+  stroke: var(--color-gold);
+}
+
+.panel-icon-node {
+  transition: fill 0.3s ease, r 0.3s ease;
+}
+
+.door-panel.active .panel-icon-node {
+  r: 5.5px;
+}
+
+.panel-text {
+  font-family: var(--font-sans);
+  font-size: 8px;
+  font-weight: 700;
+  fill: var(--color-text-muted);
+  text-anchor: middle;
+  letter-spacing: 0.12em;
+  transition: fill 0.3s ease;
+}
+
+.door-panel.active .panel-text {
+  fill: var(--color-accent-blue);
+}
+
+.room-line {
+  stroke: var(--color-border);
+  stroke-width: 1.2;
+  fill: none;
+  stroke-linecap: round;
+  transition: stroke 0.4s ease;
+}
+
+.room-back-wall {
+  transition: fill 0.4s ease;
+}
+
+.room-label {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 11px;
+  fill: var(--color-text-muted);
+  text-anchor: middle;
+}
+
+/* SECTION 3: ABSORPTIVE PIPELINE STYLING */
+.stage-circle {
+  transition: fill 0.4s cubic-bezier(0.25, 1, 0.5, 1), stroke 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.stage-num {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 800;
+  fill: var(--color-accent-blue);
+  text-anchor: middle;
+  transition: fill 0.4s ease;
+}
+
+.stage-title {
+  font-family: var(--font-sans);
+  font-size: 8.5px;
+  font-weight: 700;
+  fill: var(--color-text-muted);
+  text-anchor: middle;
+  letter-spacing: 0.1em;
+  transition: fill 0.4s ease;
+}
+
+.stage-sub {
+  font-family: var(--font-sans);
+  font-size: 9.5px;
+  fill: var(--color-text-muted);
+  text-anchor: middle;
+  font-weight: 500;
+}
+
+/* Active Pipeline states */
+.pipe-stage.active .stage-circle {
+  fill: var(--color-accent-blue);
+  stroke: var(--color-accent-blue);
+}
+
+.pipe-stage.active .stage-circle-glow {
+  opacity: 1;
+}
+
+.pipe-stage.active .stage-num {
+  fill: #fff;
+}
+
+.pipe-stage.active .stage-title {
+  fill: var(--color-gold);
+}
+
+.pipe-particle {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* SECTION 4: CRITIQUE PANELS STYLING */
+.receiver-panel-group,
+.author-panel-group {
+  transform-origin: 400px 230px;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.5s ease;
+}
+
+/* Initially hide the Author panel and show the Receiver panel */
+.receiver-panel-group {
+  opacity: 1;
+  transform: translate(0, 0) scale(1);
+}
+
+.author-panel-group {
+  opacity: 0;
+  transform: translate(80px, 40px) scale(0.85);
+}
+
+.svg-panel-header {
+  font-family: var(--font-sans);
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-anchor: middle;
+}
+
+.svg-panel-title {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 700;
+  text-anchor: middle;
+}
+
+.svg-box-text {
+  font-family: var(--font-sans);
+  font-size: 9.5px;
+  font-weight: 600;
+  text-anchor: middle;
+}
+
+.svg-panel-caption {
+  font-family: var(--font-serif);
+  font-size: 9px;
+  font-style: italic;
+  text-anchor: middle;
+  line-height: 1.4;
+}
+
+/* SECTION 5: INTERACTIVE CONSTELLATION */
+.const-outer-boundary {
+  fill: none;
+  stroke: var(--color-border);
+  stroke-width: 1px;
+  opacity: 0.25;
+}
+
+.const-node {
+  cursor: pointer;
+}
+
+.const-node:hover .node-circle.outer {
+  stroke: var(--color-gold);
+  stroke-width: 2.5;
+  fill: #fff;
+}
+
+.node-ring {
+  fill: none;
+  stroke: var(--color-gold);
+  stroke-width: 1.2;
+  stroke-dasharray: 4 4;
+  opacity: 0;
+  transform-origin: center;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.const-node:hover .node-ring {
+  opacity: 0.75;
+  animation: spin 10s linear infinite;
+}
+
+.const-node.active .node-circle.outer {
+  fill: var(--color-accent-blue);
+  stroke: var(--color-accent-blue);
+  stroke-width: 2.5;
+  filter: drop-shadow(0 6px 15px rgba(28, 61, 74, 0.25));
+}
+
+.const-node.active .node-text.label {
+  fill: #fff;
+  font-weight: 700;
+}
+
+.const-node.active .node-ring {
+  opacity: 1;
+  stroke: var(--color-accent-blue);
+  stroke-width: 1.8;
+  stroke-dasharray: none;
+  animation: none;
+}
+
+.const-link.active-link {
+  stroke: var(--color-accent-blue);
+  stroke-width: 3;
+  stroke-dasharray: none;
+  opacity: 1;
+}
+
+/* SECTION 6: AGENCY PATHWAYS */
+.term-circle {
+  transition: fill 0.3s ease, stroke 0.3s ease, filter 0.3s ease;
+}
+
+.path-node:hover .term-circle {
+  stroke: var(--color-accent);
+  stroke-width: 2.5;
+  fill: #fff;
+}
+
+.term-label {
+  font-family: var(--font-sans);
+  font-size: 8.5px;
+  font-weight: 700;
+  fill: var(--color-accent-blue);
+  text-anchor: middle;
+}
+
+/* Active agency styles */
+.path-node.active .term-circle {
+  fill: var(--color-accent);
+  stroke: var(--color-accent);
+  stroke-width: 2.5;
+  filter: drop-shadow(0 6px 15px rgba(177, 42, 39, 0.25));
+}
+
+.path-node.active .term-label {
+  fill: #fff;
+}
+
+.branch-path.active {
+  stroke: var(--color-accent);
+  stroke-width: 4.5;
+  opacity: 1;
+}
+
+/* SECTION 7: SAFEGUARDS LAYER STYLING */
+.ripple-ring {
+  fill: none;
+  stroke: var(--color-gold);
+  stroke-width: 1px;
+  stroke-linecap: round;
+  transition: opacity 0.5s ease, r 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.risk-dot {
+  transition: cx 0.1s linear, cy 0.1s linear, fill 0.3s ease;
+}
+
+.risk-dot.deflected {
+  fill: var(--color-accent-green);
+  filter: url(#glow-gold);
+}
+
+.risk-trajectory {
+  fill: none;
+  stroke: var(--color-accent);
+  stroke-width: 1px;
+  stroke-dasharray: 4 4;
+  opacity: 0.25;
+}
+
+.deflect-label {
+  font-family: var(--font-sans);
+  font-size: 8px;
+  font-weight: 700;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.dl1 {
+  fill: var(--color-accent-green);
+  text-anchor: end;
+}
+
+.dl2 {
+  fill: var(--color-accent-blue);
+  text-anchor: start;
+}
+
+/* SECTION 8: CLOSING STYLING */
+.future-sun {
+  opacity: 0.45;
+}
+
+.future-path {
+  stroke-linecap: round;
+}
+
+.landscape-tag {
+  font-family: var(--font-sans);
+  font-size: 8px;
+  font-weight: 700;
+  text-anchor: middle;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   DESKTOP STYLING RESPONSIVENESS OVERRIDES
+   ========================================================================== */
+@media (min-width: 768px) {
+  .scrolly-container {
+    display: grid;
+    grid-template-columns: 55% 45%;
+    grid-template-rows: auto;
+  }
+
+  .graphic-wrapper {
+    transform: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 2.5rem;
+    box-sizing: border-box;
+  }
+
+  .sticky-graphic {
+    grid-column: 1;
+    grid-row: 1;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    border-bottom: none;
+    border-right: 1px solid var(--color-border);
+    z-index: 1;
+  }
+
+  .scroll-narrative {
+    grid-column: 2;
+    grid-row: 1;
+    width: 100%;
+    margin-left: 0;
+    padding-bottom: 0;
+    z-index: 5;
+  }
+
+  .step {
+    min-height: 100vh;
+    align-items: center;
+    padding: 0 5rem;
+  }
+
+  .step-card {
+    padding: 3rem 3.5rem;
+    max-width: 540px;
+    border-radius: 12px;
+  }
+
+  .step-heading {
+    font-size: 1.85rem;
+  }
+
+  .step-card p {
+    font-size: 1.05rem;
+  }
+
+  .node-hud-card,
+  .vignette-hud-card {
+    position: fixed;
+    bottom: 2.5rem;
+    left: calc(55% + 2.5rem);
+    right: 2.5rem;
+    padding: 2rem 2.8rem;
+  }
+
+  .hud-title {
+    font-size: 1.5rem;
+  }
+
+  .hud-desc {
+    font-size: 1.05rem;
+  }
+
+  .hud-example {
+    font-size: 0.88rem;
+  }
+}
+
+/* ==========================================================================
+   NATIVE CSS SCROLL-DRIVEN ANIMATIONS (SDA)
+   ========================================================================== */
+
+
+/* ==========================================================================
+   MANDATORY ACCESSIBILITY OVERRIDES (prefers-reduced-motion)
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  .step-card {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    box-shadow: none !important;
+  }
+  .step.active-step .step-card {
+    border-color: var(--color-accent) !important;
+  }
+  .scroll-prompt {
+    animation: none !important;
+  }
+  .visual-section {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .crack-path {
+    stroke-dashoffset: 0 !important;
+    opacity: 1 !important;
+  }
+  .hero-monolith-shake-wrapper {
+    transform: none !important;
+  }
+  .hero-monolith-group {
+    transform: translate(400px, 240px) scale(0) !important;
+    opacity: 0 !important;
+  }
+  .emerging-constellation {
+    opacity: 1 !important;
+    transform: scale(1) !important;
+  }
+  .door-panel {
+    transform: none !important;
+    opacity: 1 !important;
+  }
+  .connectivity-panel { transform: translate(-80px, -70px) scale(0.9) !important; }
+  .models-panel { transform: translate(80px, 0px) scale(0.9) !important; }
+  .data-panel { transform: translate(-80px, 70px) scale(0.9) !important; }
+  .room-wireframe { opacity: 1 !important; transform: translate(400px, 240px) scale(1) !important; }
+  .door-frame-group, .door-panels { opacity: 0.15 !important; }
+  .pipe-stage { transform: none !important; }
+  .stage-circle { fill: var(--color-accent-blue) !important; stroke: var(--color-accent-blue) !important; }
+  .stage-num, .stage-title { fill: var(--color-bg) !important; }
+  .pipe-particle { opacity: 0 !important; }
+  .receiver-panel-group { transform: translate(-80px, 0) scale(0.85) !important; opacity: 0.25 !important; }
+  .author-panel-group { transform: translate(0, 0) scale(1) !important; opacity: 1 !important; }
+  .branch-path { stroke-dashoffset: 0 !important; }
+  .safeguards-nested-layers { transform: translate(400px, 240px) scale(1) !important; }
+  .risk-dot { opacity: 0 !important; }
+  .deflect-label { opacity: 1 !important; }
+}
+
+/* Responsive Utilities */
+.mobile-only {
+  display: block;
+}
+.desktop-only {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .mobile-only {
+    display: none;
+  }
+  .desktop-only {
+    display: block;
+  }
+}
