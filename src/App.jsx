@@ -92,8 +92,7 @@ export default function App() {
       {/* Editorial Top Header */}
       <header className="editorial-header">
         <div className="header-meta">
-          <span className="pub-type">Visual Narrative / Policy Brief</span>
-          <span className="pub-date">July 2026</span>
+          <span className="pub-type">Visual Essay - July 2026</span>
         </div>
         <h1 className="header-title">Absorptive Capacity, Access, and Constellations of AI Capability</h1>
         <p className="header-subtitle">Why policy debates must move beyond the monolith of “capacity building” and embrace pluriversal futures.</p>
