@@ -55,7 +55,7 @@ const ConstellationSection = ({ isActive, selectedNode, setSelectedNode }) => {
     { id: 'absorptive', label: 'Absorption', x: 180, y: -70 },
     { id: 'generative', label: 'Generative', x: 110, y: 150 },
     { id: 'institutional', label: 'Institutions', x: -110, y: 150 },
-    { id: 'dpi', label: 'DPI & Data', x: -180, y: -70 }
+    { id: 'dpi', label: 'Data', x: -180, y: -70 }
   ];
 
   const handleNodeClick = (e, nodeId) => {

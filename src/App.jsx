@@ -149,7 +149,7 @@ export default function App() {
             <div className="step-card">
               <span className="step-tag">Constellation / 10</span>
               <h2 className="step-heading">The Full Landscape</h2>
-              <p>AI capacity is therefore best understood as a multi-dimensional constellation. <strong>Access</strong> feeds into <strong>Absorption</strong>, which interacts with <strong>Generative</strong> nodes. Both are anchored by <strong>Institutional safeguards</strong> and built on robust <strong>Digital Public Infrastructure (DPI) & data ecosystems</strong>.</p>
+              <p>AI capacity is therefore best understood as a multi-dimensional constellation. <strong>Access</strong> feeds into <strong>Absorption</strong>, which interacts with <strong>Generative</strong> nodes. Both are anchored by <strong>Institutional safeguards</strong> and built on robust <strong>data ecosystems</strong>.</p>
               <p className="desktop-only"><em>Interact with the graphic on the left by hovering or clicking the nodes to see details.</em></p>
               <p className="mobile-only"><em>Tap the nodes in the graphic above to inspect their unique roles.</em></p>
             </div>

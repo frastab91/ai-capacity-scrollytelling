@@ -193,7 +193,7 @@ export default function HeroSection() {
               {/* Node 5: DPI */}
               <g className="outer-node-g node-dpi">
                 <circle cx="220" cy="230" r="35" className="node-circle outer" fill="url(#node-cream-grad)" stroke="#b28d46" filter="url(#shadow-node)" />
-                <text className="node-text label" x="220" y="234">DPI & Data</text>
+                <text className="node-text label" x="220" y="234">Data</text>
               </g>
             </g>
           </svg>

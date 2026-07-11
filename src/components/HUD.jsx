@@ -27,7 +27,7 @@ const nodeData = {
     example: "Example: Cross-sector panels conducting pre-deployment human rights audits on algorithmic public-housing tools."
   },
   dpi: {
-    title: "Digital Public Infrastructure & Data",
+    title: "Data",
     desc: "The public digital rails (payment gateways, digital identity, data trusts) that enable secure and inclusive AI applications.",
     example: "Example: Open consent registries allowing citizens to share their agricultural logs safely for collective weather AI training."
   }
