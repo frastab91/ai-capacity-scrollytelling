@@ -97,7 +97,7 @@ export default function App() {
         <h1 className="header-title">Absorptive Capacity, Access, and Constellations of AI Capability</h1>
         <p className="header-subtitle">Why policy debates must move beyond the monolith of “capacity building” and embrace pluriversal futures.</p>
         <div className="header-byline">
-          Based on the paper <span className="paper-title">“Absorptive Capacity, Access, and Constellations of AI Capability”</span>
+          Thoughts on what it mean to have <span className="paper-title">agency and capacity</span> to benefit from AI
         </div>
         <div className="scroll-prompt">
           <span className="scroll-text">Scroll to Begin</span>
