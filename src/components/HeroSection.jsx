@@ -20,10 +20,15 @@ export default function HeroSection() {
     });
 
     // 1. Shake and Crack Drawing (First 45% of scroll)
-    // Draw cracks
+    // Draw cracks and fade in inner fragment seams
     tl.to('.crack-path', {
       strokeDashoffset: 0,
       opacity: 1,
+      duration: 0.4,
+      ease: 'power1.inOut'
+    }, 0)
+    .to('.monolith-block', {
+      strokeOpacity: 1,
       duration: 0.4,
       ease: 'power1.inOut'
     }, 0);
@@ -44,7 +49,7 @@ export default function HeroSection() {
       .to('.frag-right', { x: 160, y: -40, rotation: 25, opacity: 0, scale: 0.4, duration: 0.35 }, 0.45)
       .to('.frag-bottom', { x: 40, y: 160, rotation: 20, opacity: 0, scale: 0.4, duration: 0.35 }, 0.45)
       .to('.frag-left', { x: -160, y: 40, rotation: -25, opacity: 0, scale: 0.4, duration: 0.35 }, 0.45)
-      .to('.monolith-inner, .monolith-label, .monolith-sublabel, .crack-path', { opacity: 0, scale: 0.5, duration: 0.25 }, 0.45);
+      .to('.monolith-inner, .monolith-outer-border, .monolith-label, .monolith-sublabel, .crack-path', { opacity: 0, scale: 0.5, duration: 0.25 }, 0.45);
 
     // 3. Emerge Constellation (starts at 50% scroll)
     tl.to('.emerging-constellation', {
@@ -132,14 +137,15 @@ export default function HeroSection() {
               <g className="hero-monolith-group" transform="translate(400, 300) scale(2.35)">
                 
                 {/* 4 Distinct SVG Polygons/Paths that form the monolith */}
-                <path className="monolith-block frag-top" d="M 0 0 L -115 -103 C -115 -109.6 -109.6 -115 -103 -115 L 103 -115 C 109.6 -115 115 -109.6 115 -103 Z" fill="url(#monolith-metal)" stroke="url(#gold-glow-grad)" strokeWidth="2.5" filter="url(#shadow-monolith)" />
-                <path className="monolith-block frag-right" d="M 0 0 L 115 -103 L 115 103 C 115 109.6 109.6 115 103 115 Z" fill="url(#monolith-metal)" stroke="url(#gold-glow-grad)" strokeWidth="2.5" filter="url(#shadow-monolith)" />
-                <path className="monolith-block frag-bottom" d="M 0 0 L 103 115 L -103 115 C -109.6 115 -115 109.6 -115 103 Z" fill="url(#monolith-metal)" stroke="url(#gold-glow-grad)" strokeWidth="2.5" filter="url(#shadow-monolith)" />
-                <path className="monolith-block frag-left" d="M 0 0 L -115 103 L -115 -103 Z" fill="url(#monolith-metal)" stroke="url(#gold-glow-grad)" strokeWidth="2.5" filter="url(#shadow-monolith)" />
+                 <path className="monolith-block frag-top" d="M 0 0 L -115 -103 C -115 -109.6 -109.6 -115 -103 -115 L 103 -115 C 109.6 -115 115 -109.6 115 -103 Z" fill="url(#monolith-metal)" stroke="url(#gold-glow-grad)" strokeWidth="2.5" strokeOpacity={0} filter="url(#shadow-monolith)" />
+                 <path className="monolith-block frag-right" d="M 0 0 L 115 -103 L 115 103 C 115 109.6 109.6 115 103 115 Z" fill="url(#monolith-metal)" stroke="url(#gold-glow-grad)" strokeWidth="2.5" strokeOpacity={0} filter="url(#shadow-monolith)" />
+                 <path className="monolith-block frag-bottom" d="M 0 0 L 103 115 L -103 115 C -109.6 115 -115 109.6 -115 103 Z" fill="url(#monolith-metal)" stroke="url(#gold-glow-grad)" strokeWidth="2.5" strokeOpacity={0} filter="url(#shadow-monolith)" />
+                 <path className="monolith-block frag-left" d="M 0 0 L -115 103 L -115 -103 Z" fill="url(#monolith-metal)" stroke="url(#gold-glow-grad)" strokeWidth="2.5" strokeOpacity={0} filter="url(#shadow-monolith)" />
 
-                <rect className="monolith-inner" x="-100" y="-100" width="200" height="200" rx="8" fill="none" stroke="rgba(245, 158, 11, 0.15)" strokeWidth="1.5" style={{ pointerEvents: 'none' }} />
-                <text className="monolith-label" y="0">AI CAPACITY</text>
-                <text className="monolith-sublabel" y="30">MONOLITH</text>
+                 <rect className="monolith-outer-border" x="-115" y="-115" width="230" height="230" rx="12" fill="none" stroke="url(#gold-glow-grad)" strokeWidth="2.5" opacity="0.8" style={{ pointerEvents: 'none' }} />
+                 <rect className="monolith-inner" x="-100" y="-100" width="200" height="200" rx="8" fill="none" stroke="rgba(245, 158, 11, 0.15)" strokeWidth="1.5" style={{ pointerEvents: 'none' }} />
+                 <text className="monolith-label" y="0">AI CAPACITY</text>
+                 <text className="monolith-sublabel" y="30">MONOLITH</text>
                 
                 {/* Crack lines (neon gold glow, drawn on scroll) */}
                 <path className="crack-path crack-1" d="M -50 -115 L -20 -40 L -60 20 L -30 115" stroke="url(#gold-glow-grad)" filter="url(#glow-gold)" />
