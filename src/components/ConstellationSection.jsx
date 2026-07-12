@@ -180,7 +180,9 @@ const ConstellationSection = ({ isActive, selectedNode, setSelectedNode }) => {
           })}
         </g>
 
-        <text x="400" y="40" className="interactive-hint">Tap any node to inspect its function</text>
+        <text x="400" y="40" className="interactive-hint">
+          {selectedNode ? '\u00D7 Tap background to close' : '\u2299 Tap nodes to explore'}
+        </text>
       </svg>
     </div>
   );

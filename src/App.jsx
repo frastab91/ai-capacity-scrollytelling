@@ -99,7 +99,7 @@ export default function App() {
           </div>
           <h1 className="header-title header-title-primary" style={{ pointerEvents: 'auto' }}>From Access to Agency</h1>
           <p className="header-title-secondary" style={{ pointerEvents: 'auto' }}>AI Capacity: From Monolith to Constellation</p>
-          <p className="header-deck" style={{ pointerEvents: 'auto' }}>The real risk in AI policy is not exclusion alone. It is inclusion on terms that reduce societies to absorption. AI capacity is not a monolith. It is a constellation of capabilities that determines who can use, govern, reshape, and create AI.</p>
+          <p className="header-deck" style={{ pointerEvents: 'auto' }}>The real risk in AI policy is not exclusion alone. It is inclusion on terms that reduce societies to absorption. <span className="hand-highlight">AI capacity is not a monolith</span>. It is a constellation of capabilities that determines who can use, govern, reshape, and create AI.</p>
           <div className="scroll-prompt" style={{ pointerEvents: 'auto' }}>
             <span className="scroll-text">Scroll to Begin</span>
             <div className="scroll-indicator">
@@ -153,11 +153,7 @@ export default function App() {
               <h2 className="step-heading">The Full Landscape</h2>
               <p>AI capacity is therefore best understood as a multi-dimensional constellation. <strong>Access</strong> feeds into <strong>Absorption</strong>, which interacts with <strong>Generative</strong> nodes. Both are anchored by <strong>Institutional safeguards</strong> and built on robust <strong>data ecosystems</strong>.</p>
               <p className="desktop-only"><em>Interact with the graphic on the left by hovering or clicking the nodes to see details.</em></p>
-            </div>
-            <div className="const-interaction-callout mobile-only">
-              {selectedNode
-                ? "\u2713 Node active. Tap anywhere outside or tap \u00d7 on the overlay to close."
-                : "\uD83D\uDC49 Tap any bubble in the constellation layout to inspect its core role."}
+              <em className="agency-hint">(tap on any bubble to learn more)</em>
             </div>
           </section>
 
@@ -167,6 +163,7 @@ export default function App() {
               <span className="step-tag">Agency / 11</span>
               <h2 className="step-heading">Pluriversal Pathways</h2>
               <p>In a <strong>pluriversal framing</strong>, there is no single "correct" trajectory of AI progress. Development is plural. Communities must have the sovereignty and agency to choose how they engage with AI.</p>
+              <em className="agency-hint">(tap on any bubble to learn more)</em>
             </div>
           </section>
 

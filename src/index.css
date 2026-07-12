@@ -1476,30 +1476,80 @@ body {
 }
 
 /* ==========================================================================
-   CONSTELLATION MOBILE INTERACTION CALLOUT (width < 768px)
+   CONSTELLATION MOBILE: PULSING NODES + MINIMAL HINT (width < 768px)
    ========================================================================== */
-.const-interaction-callout {
-  position: relative !important;
-  margin: 0.8rem auto 1.2rem;
-  padding: 0.75rem 1.25rem;
-  max-width: 90%;
-  width: fit-content;
-  border-radius: 100px;
-  background-color: hsla(10, 70%, 50%, 0.08);
-  border: 1px solid hsla(10, 70%, 50%, 0.2);
-  font-family: var(--font-sans);
-  font-size: clamp(0.78rem, 2.5vw, 0.9rem);
-  font-weight: 600;
-  color: var(--color-accent);
-  text-align: center;
-  line-height: 1.4;
-  pointer-events: none;
-  user-select: none;
-}
-
-/* Hide the SVG embedded interactive-hint text on mobile — replaced by the HTML callout */
 @media (max-width: 767px) {
   #visual-constellation .interactive-hint {
-    display: none;
+    font-size: 11px;
+    fill: var(--color-text-muted);
+    letter-spacing: 0.15em;
+  }
+
+  .active-constellation:not(:has(.active)) .outer-interactive .node-circle.outer {
+    animation: gem-pulse 3s infinite ease-in-out;
+    transform-origin: center;
+    transform-box: fill-box;
+  }
+}
+
+@keyframes gem-pulse {
+  0% {
+    stroke: var(--color-border);
+    stroke-width: 1.5;
+    filter: drop-shadow(0 0 0px transparent);
+  }
+  50% {
+    stroke: var(--color-gold);
+    stroke-width: 2.2;
+    filter: drop-shadow(0 4px 10px rgba(178, 141, 70, 0.25));
+  }
+  100% {
+    stroke: var(--color-border);
+    stroke-width: 1.5;
+    filter: drop-shadow(0 0 0px transparent);
+  }
+}
+
+/* Agency interaction hint inside step card */
+.agency-hint {
+  display: block;
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  opacity: 0.85;
+  font-style: italic;
+}
+
+/* Premium Hand-Highlighted Marker Effect */
+.hand-highlight {
+  position: relative;
+  display: inline-block;
+  font-weight: 600;
+  color: var(--color-text);
+  z-index: 1;
+}
+
+.hand-highlight::after {
+  content: "";
+  position: absolute;
+  left: -3px;
+  bottom: 1px;
+  width: 0%;
+  height: 60%;
+  background-color: hsla(39, 85%, 75%, 0.65);
+  border-radius: 4px 8px 6px 3px;
+  z-index: -1;
+  transform: skewX(-10deg);
+  animation: draw-highlight 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  animation-delay: 0.6s;
+  will-change: width;
+}
+
+@keyframes draw-highlight {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: calc(100% + 6px);
   }
 }
