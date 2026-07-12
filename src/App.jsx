@@ -7,6 +7,7 @@ import { useGSAP } from '@gsap/react';
 // Import Visual Section Components
 import HeroSection from './components/HeroSection';
 import AccessSection from './components/AccessSection';
+import VectorFieldCanvas from './components/VectorFieldCanvas';
 import AbsorptiveSection from './components/AbsorptiveSection';
 import CritiqueSection from './components/CritiqueSection';
 import ConstellationSection from './components/ConstellationSection';
@@ -91,18 +92,21 @@ export default function App() {
 
       {/* Editorial Top Header */}
       <header className="editorial-header">
-        <div className="header-meta">
-          <span className="pub-type">Visual Essay - July 2026</span>
-        </div>
-        <h1 className="header-title">Absorptive Capacity, Access, and Constellations of AI Capability</h1>
-        <p className="header-subtitle">Why policy debates must move beyond the monolith of “capacity building” and embrace pluriversal futures.</p>
-        <div className="header-byline">
-          Thoughts on what it mean to have <span className="paper-title">agency and capacity</span> to benefit from AI
-        </div>
-        <div className="scroll-prompt">
-          <span className="scroll-text">Scroll to Begin</span>
-          <div className="scroll-indicator">
-            <span className="scroll-dot"></span>
+        <VectorFieldCanvas />
+        <div style={{ position: 'relative', zIndex: 2, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100%', width: '100%', pointerEvents: 'none' }}>
+          <div className="header-meta" style={{ pointerEvents: 'auto' }}>
+            <span className="pub-type">Visual Essay - July 2026</span>
+          </div>
+          <h1 className="header-title" style={{ pointerEvents: 'auto' }}>Absorptive Capacity, Access, and Constellations of AI Capability</h1>
+          <p className="header-subtitle" style={{ pointerEvents: 'auto' }}>Why policy debates must move beyond the monolith of “capacity building” and embrace pluriversal futures.</p>
+          <div className="header-byline" style={{ pointerEvents: 'auto' }}>
+            Thoughts on what it mean to have <span className="paper-title">agency and capacity</span> to benefit from AI
+          </div>
+          <div className="scroll-prompt" style={{ pointerEvents: 'auto' }}>
+            <span className="scroll-text">Scroll to Begin</span>
+            <div className="scroll-indicator">
+              <span className="scroll-dot"></span>
+            </div>
           </div>
         </div>
       </header>
@@ -114,7 +118,7 @@ export default function App() {
       <CritiqueSection />
 
       {/* Shared Interactive Scrollytelling Section for Sections 5-8 */}
-      <main className="scrolly-container interactive-scrolly-section" style={{ minHeight: '600vh' }}>
+      <main className="scrolly-container interactive-scrolly-section">
         
         {/* Sticky Graphic Pane */}
         <div className="sticky-graphic">

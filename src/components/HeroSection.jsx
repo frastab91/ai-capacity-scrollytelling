@@ -2,11 +2,15 @@ import React, { useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
+import VectorFieldCanvas from './VectorFieldCanvas';
+import { useIsMobile } from '../hooks/useIsMobile';
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function HeroSection() {
   const containerRef = useRef(null);
+  const isMobile = useIsMobile();
+  const svgViewBox = isMobile ? '100 0 600 600' : '0 0 800 600';
 
   useGSAP(() => {
     // Scoped selection via containerRef
@@ -79,12 +83,13 @@ export default function HeroSection() {
   }, { scope: containerRef });
 
   return (
-    <div ref={containerRef} className="scrolly-container hero-scrolly-section" style={{ minHeight: '200vh' }}>
+    <div ref={containerRef} className="scrolly-container hero-scrolly-section">
       
       {/* Sticky Graphic Pane */}
       <div className="sticky-graphic">
+        <VectorFieldCanvas />
         <div className="graphic-wrapper">
-          <svg viewBox="0 0 800 600" width="100%" height="100%">
+          <svg viewBox={svgViewBox} width="100%" height="100%">
             <defs>
               <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
                 <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#e4dad0" strokeWidth="0.5" />

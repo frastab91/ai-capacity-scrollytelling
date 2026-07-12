@@ -2,11 +2,14 @@ import React, { useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
+import { useIsMobile } from '../hooks/useIsMobile';
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function AbsorptiveSection() {
   const containerRef = useRef(null);
+  const isMobile = useIsMobile();
+  const svgViewBox = isMobile ? '180 0 440 600' : '0 0 800 600';
 
   useGSAP(() => {
     const tl = gsap.timeline({
@@ -26,8 +29,8 @@ export default function AbsorptiveSection() {
     tl.to('.stage-1', { scale: 1.15, duration: 0.15, ease: 'power1.out' }, 0.05);
     tl.to('.stage-1', { scale: 1.0, duration: 0.1 }, 0.2); // Settle but stay active
     tl.fromTo('.p1', 
-      { cy: 60, opacity: 0 }, 
-      { cy: 150, opacity: 1, duration: 0.25, ease: 'power1.inOut' }, 
+      { cy: 40, opacity: 0 }, 
+      { cy: 130, opacity: 1, duration: 0.25, ease: 'power1.inOut' }, 
       0.02
     );
 
@@ -40,13 +43,13 @@ export default function AbsorptiveSection() {
     tl.to('.stage-2', { scale: 1.0, duration: 0.1 }, 0.45);
     
     tl.fromTo('.p2', 
-      { cy: 150, opacity: 0 }, 
-      { cy: 300, opacity: 1, duration: 0.25, ease: 'power1.inOut' }, 
+      { cy: 130, opacity: 0 }, 
+      { cy: 280, opacity: 1, duration: 0.25, ease: 'power1.inOut' }, 
       0.22
     );
     tl.fromTo('.p3', 
-      { cy: 150, opacity: 0 }, 
-      { cy: 300, opacity: 1, duration: 0.25, ease: 'power1.inOut' }, 
+      { cy: 130, opacity: 0 }, 
+      { cy: 280, opacity: 1, duration: 0.25, ease: 'power1.inOut' }, 
       0.28
     );
 
@@ -59,13 +62,13 @@ export default function AbsorptiveSection() {
     tl.to('.stage-3', { scale: 1.0, duration: 0.1 }, 0.7);
     
     tl.fromTo('.p4', 
-      { cy: 300, opacity: 0 }, 
-      { cy: 450, opacity: 1, duration: 0.25, ease: 'power1.inOut' }, 
+      { cy: 280, opacity: 0 }, 
+      { cy: 430, opacity: 1, duration: 0.25, ease: 'power1.inOut' }, 
       0.48
     );
     tl.fromTo('.p5', 
-      { cy: 300, opacity: 0 }, 
-      { cy: 450, opacity: 1, duration: 0.25, ease: 'power1.inOut' }, 
+      { cy: 280, opacity: 0 }, 
+      { cy: 430, opacity: 1, duration: 0.25, ease: 'power1.inOut' }, 
       0.54
     );
 
@@ -89,12 +92,12 @@ export default function AbsorptiveSection() {
   }, { scope: containerRef });
 
   return (
-    <div ref={containerRef} className="scrolly-container absorptive-scrolly-section" style={{ minHeight: '200vh' }}>
+    <div ref={containerRef} className="scrolly-container absorptive-scrolly-section">
       
       {/* Sticky Graphic Pane */}
       <div className="sticky-graphic">
         <div className="graphic-wrapper">
-          <svg viewBox="0 0 800 600" width="100%" height="100%">
+          <svg viewBox={svgViewBox} width="100%" height="100%">
             <defs>
               <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
                 <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#e4dad0" strokeWidth="0.5" />
@@ -137,32 +140,32 @@ export default function AbsorptiveSection() {
             
             <g className="pipeline-group">
               {/* Connective Glass Pipeline Shaft */}
-              <rect x="388" y="60" width="24" height="480" rx="12" fill="url(#pipe-tube-grad)" stroke="#d3c8bc" strokeWidth="1.5" />
-              <rect x="396" y="60" width="8" height="480" fill="#ffffff" opacity="0.5" style={{ pointerEvents: 'none' }} />
+              <rect x="386" y="40" width="28" height="480" rx="14" fill="url(#pipe-tube-grad)" stroke="#d3c8bc" strokeWidth="1.5" />
+              <rect x="395" y="40" width="10" height="480" fill="#ffffff" opacity="0.5" style={{ pointerEvents: 'none' }} />
               
               {/* Stages */}
               {/* Stage 1: Recognize */}
-              <g className="pipe-stage stage-1" transform="translate(400, 150)">
-                <circle r="44" className="stage-circle" fill="url(#node-cream-grad)" stroke="#e4dad0" strokeWidth="2" filter="url(#shadow-node)" />
-                <circle r="44" className="stage-circle-glow" fill="none" stroke="#1c3d4a" strokeWidth="2.5" style={{ opacity: 0 }} filter="url(#glow-blue)" />
+              <g className="pipe-stage stage-1" transform="translate(400, 130)">
+                <circle r="54" className="stage-circle" fill="url(#node-cream-grad)" stroke="#e4dad0" strokeWidth="2" filter="url(#shadow-node)" />
+                <circle r="54" className="stage-circle-glow" fill="none" stroke="#1c3d4a" strokeWidth="2.5" style={{ opacity: 0 }} filter="url(#glow-blue)" />
                 <text className="stage-num" y="-5">01</text>
                 <text className="stage-title" y="15">RECOGNIZE</text>
                 <text className="stage-sub" y="70">Value external AI systems</text>
               </g>
 
               {/* Stage 2: Assimilate */}
-              <g className="pipe-stage stage-2" transform="translate(400, 300)">
-                <circle r="44" className="stage-circle" fill="url(#node-cream-grad)" stroke="#e4dad0" strokeWidth="2" filter="url(#shadow-node)" />
-                <circle r="44" className="stage-circle-glow" fill="none" stroke="#1c3d4a" strokeWidth="2.5" style={{ opacity: 0 }} filter="url(#glow-blue)" />
+              <g className="pipe-stage stage-2" transform="translate(400, 280)">
+                <circle r="54" className="stage-circle" fill="url(#node-cream-grad)" stroke="#e4dad0" strokeWidth="2" filter="url(#shadow-node)" />
+                <circle r="54" className="stage-circle-glow" fill="none" stroke="#1c3d4a" strokeWidth="2.5" style={{ opacity: 0 }} filter="url(#glow-blue)" />
                 <text className="stage-num" y="-5">02</text>
                 <text className="stage-title" y="15">ASSIMILATE</text>
                 <text className="stage-sub" y="70">Integrate into routines & tech</text>
               </g>
 
               {/* Stage 3: Apply */}
-              <g className="pipe-stage stage-3" transform="translate(400, 450)">
-                <circle r="44" className="stage-circle" fill="url(#node-cream-grad)" stroke="#e4dad0" strokeWidth="2" filter="url(#shadow-node)" />
-                <circle r="44" className="stage-circle-glow" fill="none" stroke="#1c3d4a" strokeWidth="2.5" style={{ opacity: 0 }} filter="url(#glow-blue)" />
+              <g className="pipe-stage stage-3" transform="translate(400, 430)">
+                <circle r="54" className="stage-circle" fill="url(#node-cream-grad)" stroke="#e4dad0" strokeWidth="2" filter="url(#shadow-node)" />
+                <circle r="54" className="stage-circle-glow" fill="none" stroke="#1c3d4a" strokeWidth="2.5" style={{ opacity: 0 }} filter="url(#glow-blue)" />
                 <text className="stage-num" y="-5">03</text>
                 <text className="stage-title" y="15">APPLY</text>
                 <text className="stage-sub" y="70">Deploy to productive ends</text>
@@ -170,17 +173,17 @@ export default function AbsorptiveSection() {
 
               {/* Glowing Particle Flow Loops */}
               <g className="pipeline-particles">
-                <circle cx="400" cy="60" r="6" className="pipe-particle p1" fill="#dc2626" filter="url(#glow-crimson)" style={{ opacity: 0 }} />
-                <circle cx="400" cy="150" r="6" className="pipe-particle p2" fill="#1c3d4a" filter="url(#glow-blue)" style={{ opacity: 0 }} />
-                <circle cx="400" cy="150" r="6" className="pipe-particle p3" fill="#1c3d4a" filter="url(#glow-blue)" style={{ opacity: 0 }} />
-                <circle cx="400" cy="300" r="6" className="pipe-particle p4" fill="#1c3d4a" filter="url(#glow-blue)" style={{ opacity: 0 }} />
-                <circle cx="400" cy="300" r="6" className="pipe-particle p5" fill="#dc2626" filter="url(#glow-crimson)" style={{ opacity: 0 }} />
+                <circle cx="400" cy="40" r="6" className="pipe-particle p1" fill="#dc2626" filter="url(#glow-crimson)" style={{ opacity: 0 }} />
+                <circle cx="400" cy="130" r="6" className="pipe-particle p2" fill="#1c3d4a" filter="url(#glow-blue)" style={{ opacity: 0 }} />
+                <circle cx="400" cy="130" r="6" className="pipe-particle p3" fill="#1c3d4a" filter="url(#glow-blue)" style={{ opacity: 0 }} />
+                <circle cx="400" cy="280" r="6" className="pipe-particle p4" fill="#1c3d4a" filter="url(#glow-blue)" style={{ opacity: 0 }} />
+                <circle cx="400" cy="280" r="6" className="pipe-particle p5" fill="#dc2626" filter="url(#glow-crimson)" style={{ opacity: 0 }} />
               </g>
 
               {/* Feedback Arrow */}
-              <path d="M 444 450 C 564 450 564 150 444 150" className="feedback-path" fill="none" stroke="#b28d46" strokeWidth="2" strokeDasharray="6 6" style={{ strokeDasharray: 400, strokeDashoffset: 400, opacity: 0 }} />
-              <path d="M 446 144 L 434 150 L 446 156 Z" className="feedback-arrow" fill="#b28d46" style={{ opacity: 0 }} />
-              <text x="565" y="300" className="feedback-label" fill="#b28d46" transform="rotate(90, 565, 300)" style={{ opacity: 0 }}>Feedback & Learning Loop</text>
+              <path d="M 454 430 C 574 430 574 130 454 130" className="feedback-path" fill="none" stroke="#b28d46" strokeWidth="2" strokeDasharray="6 6" style={{ strokeDasharray: 400, strokeDashoffset: 400, opacity: 0 }} />
+              <path d="M 456 124 L 444 130 L 456 136 Z" className="feedback-arrow" fill="#b28d46" style={{ opacity: 0 }} />
+              <text x="575" y="280" className="feedback-label" fill="#b28d46" transform="rotate(90, 575, 280)" style={{ opacity: 0 }}>Feedback & Learning Loop</text>
             </g>
           </svg>
         </div>

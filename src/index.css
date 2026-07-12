@@ -182,6 +182,13 @@ body {
   background-color: var(--color-bg);
 }
 
+/* Scroll Track heights for mobile-first pacing */
+.hero-scrolly-section { min-height: 280vh; }
+.access-scrolly-section { min-height: 400vh; }
+.absorptive-scrolly-section { min-height: 280vh; }
+.critique-scrolly-section { min-height: 280vh; }
+.interactive-scrolly-section { min-height: 700vh; }
+
 /* Sticky Graphic window */
 .sticky-graphic {
   grid-column: 1;
@@ -203,6 +210,44 @@ body {
   margin: 0 auto;
   transform: translateY(-8vh);
 }
+
+
+/* On mobile, cancel the vertical offset and make the wrapper full-width without centering constraints */
+@media (max-width: 767px) {
+  .graphic-wrapper {
+    transform: none;
+    max-width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 0;
+    height: 55vh;
+  }
+  .sticky-graphic {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    overflow: hidden;
+  }
+  /* Make the visual SVG fill the large graphic area */
+  .visual-section {
+    position: relative;
+    width: 100%;
+    height: 55vh;
+    top: auto;
+    left: auto;
+    flex-shrink: 0;
+  }
+  .visual-section svg {
+    width: 100%;
+    height: 100%;
+    /* Zoom into the center of the 800x600 viewBox to magnify content */
+    viewBox: 150 50 500 400;
+  }
+}
+
 
 .visual-section {
   position: absolute;
@@ -926,6 +971,13 @@ body {
     grid-template-rows: auto;
   }
 
+  /* Scroll Track heights for desktop pacing */
+  .hero-scrolly-section { min-height: 200vh; }
+  .access-scrolly-section { min-height: 300vh; }
+  .absorptive-scrolly-section { min-height: 200vh; }
+  .critique-scrolly-section { min-height: 200vh; }
+  .interactive-scrolly-section { min-height: 600vh; }
+
   .interactive-scrolly-section {
     grid-template-columns: 45% 55%;
   }
@@ -1098,8 +1150,43 @@ body {
 }
 
 
-/* QA Visual Audit Mobile Overrides */
+  /* QA Visual Audit Mobile Overrides */
 @media (max-width: 767px) {
+  /* Per-section graphic wrapper height overrides */
+  .hero-scrolly-section .graphic-wrapper {
+    height: 85vh !important;
+  }
+  .access-scrolly-section .graphic-wrapper {
+    height: 100vh !important;
+  }
+  .absorptive-scrolly-section .graphic-wrapper {
+    height: 85vh !important;
+  }
+
+  /* Mobile padding, card size & font scaling overrides */
+  .step-card {
+    padding: 1.25rem 1.5rem !important;
+    max-width: 95% !important;
+    margin: 0 auto;
+  }
+  .step-heading {
+    font-size: 1.25rem !important;
+    margin-bottom: 0.6rem !important;
+  }
+  .step-card p {
+    font-size: 0.88rem !important;
+    line-height: 1.4 !important;
+    margin-bottom: 0.6rem !important;
+  }
+  .step {
+    min-height: 100vh !important;
+    padding: 0 1rem 10vh 1rem !important;
+  }
+  /* SVG viewBox zooming is handled per-component via useIsMobile hook */
+  .sticky-graphic {
+    overflow: hidden;
+  }
+
   body:has(.node-hud-card.visible) .step-card,
   body:has(.vignette-hud-card.visible) .step-card {
     opacity: 0 !important;
@@ -1119,10 +1206,19 @@ body {
     font-size: 0.8rem !important;
   }
   .panel-text {
-    font-size: 9px !important;
+    font-size: 10px !important;
   }
   .stage-title {
-    font-size: 9px !important;
+    font-size: 12px !important;
+  }
+  .stage-num {
+    font-size: 16px !important;
+  }
+  .stage-sub {
+    font-size: 11px !important;
+  }
+  .svg-box-text {
+    font-size: 11px !important;
   }
   .node-text.label {
     font-size: 11px !important;

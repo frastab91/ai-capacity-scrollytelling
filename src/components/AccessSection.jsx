@@ -2,11 +2,14 @@ import React, { useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
+import { useIsMobile } from '../hooks/useIsMobile';
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function AccessSection() {
   const containerRef = useRef(null);
+  const isMobile = useIsMobile();
+  const svgViewBox = isMobile ? '190 100 420 460' : '0 0 800 600';
 
   useGSAP(() => {
     const tl = gsap.timeline({
@@ -73,7 +76,7 @@ export default function AccessSection() {
     }, 0.82)
     .to('.room-wireframe', {
       opacity: 1,
-      scale: 1.25,
+      scale: 1.6,
       duration: 0.18,
       ease: 'power1.inOut'
     }, 0.82);
@@ -81,12 +84,12 @@ export default function AccessSection() {
   }, { scope: containerRef });
 
   return (
-    <div ref={containerRef} className="scrolly-container access-scrolly-section" style={{ minHeight: '300vh' }}>
+    <div ref={containerRef} className="scrolly-container access-scrolly-section">
       
       {/* Sticky Graphic Pane */}
       <div className="sticky-graphic">
         <div className="graphic-wrapper">
-          <svg viewBox="0 0 800 600" width="100%" height="100%">
+          <svg viewBox={svgViewBox} width="100%" height="100%">
             <defs>
               <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
                 <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#e4dad0" strokeWidth="0.5" />

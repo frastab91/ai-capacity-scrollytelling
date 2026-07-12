@@ -2,11 +2,14 @@ import React, { useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
+import { useIsMobile } from '../hooks/useIsMobile';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const ConstellationSection = ({ isActive, selectedNode, setSelectedNode }) => {
   const containerRef = useRef(null);
+  const isMobile = useIsMobile();
+  const svgViewBox = isMobile ? '100 50 600 500' : '0 0 800 600';
 
   useGSAP(() => {
     const triggerEl = document.querySelector('.step[data-step="constellation-interactive"]');
@@ -73,7 +76,7 @@ const ConstellationSection = ({ isActive, selectedNode, setSelectedNode }) => {
       className={`visual-section ${isActive ? 'active' : ''}`} 
       id="visual-constellation"
     >
-      <svg viewBox="0 0 800 600" width="100%" height="100%">
+      <svg viewBox={svgViewBox} width="100%" height="100%">
         <defs>
           <pattern id="grid-const" width="40" height="40" patternUnits="userSpaceOnUse">
             <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#e4dad0" strokeWidth="0.5" />
