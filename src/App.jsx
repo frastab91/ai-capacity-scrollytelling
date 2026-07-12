@@ -153,7 +153,11 @@ export default function App() {
               <h2 className="step-heading">The Full Landscape</h2>
               <p>AI capacity is therefore best understood as a multi-dimensional constellation. <strong>Access</strong> feeds into <strong>Absorption</strong>, which interacts with <strong>Generative</strong> nodes. Both are anchored by <strong>Institutional safeguards</strong> and built on robust <strong>data ecosystems</strong>.</p>
               <p className="desktop-only"><em>Interact with the graphic on the left by hovering or clicking the nodes to see details.</em></p>
-              <p className="mobile-only"><em>Tap the nodes in the graphic above to inspect their unique roles.</em></p>
+            </div>
+            <div className="const-interaction-callout mobile-only">
+              {selectedNode
+                ? "\u2713 Node active. Tap anywhere outside or tap \u00d7 on the overlay to close."
+                : "\uD83D\uDC49 Tap any bubble in the constellation layout to inspect its core role."}
             </div>
           </section>
 

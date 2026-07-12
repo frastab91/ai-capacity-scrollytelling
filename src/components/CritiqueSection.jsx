@@ -2,6 +2,8 @@ import React, { useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
+import { motion } from 'framer-motion';
+import { Cloud, Layers, User, Network, Globe, PenTool } from 'lucide-react';
 import { useIsMobile } from '../hooks/useIsMobile';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -12,6 +14,8 @@ export default function CritiqueSection() {
   const svgViewBox = isMobile ? '100 50 600 500' : '0 0 800 600';
 
   useGSAP(() => {
+    if (isMobile) return;
+
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: containerRef.current,
@@ -44,6 +48,83 @@ export default function CritiqueSection() {
     }, 0.2);
 
   }, { scope: containerRef });
+
+  if (isMobile) {
+    return (
+      <div className="scrolly-container critique-mobile-layout">
+
+        {/* STEP 1 — Receiver Frame */}
+        <motion.div
+          className="critique-mobile-panel receiver-panel"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: false, amount: 0.15 }}
+        >
+          <span className="panel-tag">THE RECEIVER FRAME</span>
+          <h2 className="panel-title">Exogenous Bias</h2>
+          <div className="critique-mobile-item">
+            <Cloud className="item-icon" />
+            <span>Global AI API</span>
+          </div>
+          <div className="critique-mobile-item">
+            <Layers className="item-icon" />
+            <span>Standard Package</span>
+          </div>
+          <div className="critique-mobile-item highlight">
+            <User className="item-icon" />
+            <span>Passive Consumer</span>
+          </div>
+          <p className="critique-mobile-caption">
+            Casts local actors as recipient endpoints of globally dominant platforms.
+          </p>
+        </motion.div>
+
+        {/* STEP 2 — Author Frame */}
+        <motion.div
+          className="critique-mobile-panel author-panel"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: false, amount: 0.15 }}
+        >
+          <span className="panel-tag">THE AUTHOR FRAME</span>
+          <h2 className="panel-title">Pluriversal Sovereignty</h2>
+          <div className="critique-mobile-item">
+            <Network className="item-icon" />
+            <span>Local Research Nodes</span>
+          </div>
+          <div className="critique-mobile-item">
+            <Globe className="item-icon" />
+            <span>Indigenous Knowledge</span>
+          </div>
+          <div className="critique-mobile-item highlight">
+            <PenTool className="item-icon" />
+            <span>Active Co-creators</span>
+          </div>
+          <p className="critique-mobile-caption">
+            Empowers communities to direct, adapt, or resist AI trajectories relative to local priorities.
+          </p>
+        </motion.div>
+
+        {/* STEP 3 — Becoming Authors summary (repurposed from desktop narrative) */}
+        <motion.div
+          className="critique-mobile-synthesis"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          viewport={{ once: false, amount: 0.15 }}
+        >
+          <div className="step-card" style={{ opacity: 1, position: 'relative' }}>
+            <span className="step-tag">Critique / 09</span>
+            <h2 className="step-heading">Becoming Authors</h2>
+            <p>An absorption-only frame <strong>neglects pluriversal futures</strong> and underplays <strong>indigenous and generative capabilities</strong>. Rather than just receiving external tech, capacity must include the capability to be <strong>authors</strong> of local innovation, using local languages, values, and agricultural/medical priorities.</p>
+          </div>
+        </motion.div>
+
+      </div>
+    );
+  }
 
   return (
     <div ref={containerRef} className="scrolly-container critique-scrolly-section">

@@ -21,7 +21,7 @@ const AgencySection = ({ isActive, selectedPathway, setSelectedPathway }) => {
       scrollTrigger: {
         trigger: triggerEl,
         start: 'top 70%',
-        end: 'bottom 30%',
+        end: isMobile ? '+=200%' : 'bottom 30%',
         scrub: 0.5,
       }
     });
