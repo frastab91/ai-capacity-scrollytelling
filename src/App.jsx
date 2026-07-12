@@ -95,13 +95,11 @@ export default function App() {
         <VectorFieldCanvas />
         <div style={{ position: 'relative', zIndex: 2, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100%', width: '100%', pointerEvents: 'none' }}>
           <div className="header-meta" style={{ pointerEvents: 'auto' }}>
-            <span className="pub-type">Visual Essay - July 2026</span>
+            <span className="pub-type">Visual Essay — July 2026</span>
           </div>
-          <h1 className="header-title" style={{ pointerEvents: 'auto' }}>Absorptive Capacity, Access, and Constellations of AI Capability</h1>
-          <p className="header-subtitle" style={{ pointerEvents: 'auto' }}>Why policy debates must move beyond the monolith of “capacity building” and embrace pluriversal futures.</p>
-          <div className="header-byline" style={{ pointerEvents: 'auto' }}>
-            Thoughts on what it mean to have <span className="paper-title">agency and capacity</span> to benefit from AI
-          </div>
+          <h1 className="header-title header-title-primary" style={{ pointerEvents: 'auto' }}>From Access to Agency</h1>
+          <p className="header-title-secondary" style={{ pointerEvents: 'auto' }}>AI Capacity: From Monolith to Constellation</p>
+          <p className="header-deck" style={{ pointerEvents: 'auto' }}>The real risk in AI policy is not exclusion alone. It is inclusion on terms that reduce societies to absorption. AI capacity is not a monolith. It is a constellation of capabilities that determines who can use, govern, reshape, and create AI.</p>
           <div className="scroll-prompt" style={{ pointerEvents: 'auto' }}>
             <span className="scroll-text">Scroll to Begin</span>
             <div className="scroll-indicator">

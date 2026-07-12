@@ -11,6 +11,8 @@ export default function HeroSection() {
   const containerRef = useRef(null);
   const isMobile = useIsMobile();
   const svgViewBox = isMobile ? '100 0 600 600' : '0 0 800 600';
+  const coreRadius = isMobile ? 75 : 65;
+  const outerRadius = isMobile ? 42 : 35;
 
   useGSAP(() => {
     // Scoped selection via containerRef
@@ -160,7 +162,7 @@ export default function HeroSection() {
             </g>
 
             {/* Emerging Constellation Nodes */}
-            <g className="emerging-constellation" opacity="0" transform="translate(0, -60)">
+            <g className="emerging-constellation" opacity="0" transform={isMobile ? "translate(0, 0)" : "translate(0, -60)"}>
               {/* Central Links */}
               <line x1="400" y1="300" x2="400" y2="120" className="const-link link-1" />
               <line x1="400" y1="300" x2="580" y2="230" className="const-link link-2" />
@@ -169,35 +171,35 @@ export default function HeroSection() {
               <line x1="400" y1="300" x2="220" y2="230" className="const-link link-5" />
               
               {/* Core Node */}
-              <circle cx="400" cy="300" r="65" className="node-circle core" fill="url(#crimson-core-grad)" filter="url(#shadow-node)" />
-              <circle cx="400" cy="300" r="65" className="node-circle-glow" fill="none" stroke="#dc2626" strokeWidth="2" filter="url(#glow-crimson)" opacity="0.6" />
+              <circle cx="400" cy="300" r={coreRadius} className="node-circle core" fill="url(#crimson-core-grad)" filter="url(#shadow-node)" />
+              <circle cx="400" cy="300" r={coreRadius} className="node-circle-glow" fill="none" stroke="#dc2626" strokeWidth="2" filter="url(#glow-crimson)" opacity="0.6" />
               <text className="node-text core-lbl-1" x="400" y="295">Capacity to Benefit</text>
               <text className="node-text core-lbl-2" x="400" y="312">from AI</text>
               
               {/* Outer Nodes */}
               {/* Node 1: Access */}
               <g className="outer-node-g node-access">
-                <circle cx="400" cy="120" r="35" className="node-circle outer" fill="url(#node-cream-grad)" stroke="#b28d46" filter="url(#shadow-node)" />
+                <circle cx="400" cy="120" r={outerRadius} className="node-circle outer" fill="url(#node-cream-grad)" stroke="#b28d46" filter="url(#shadow-node)" />
                 <text className="node-text label" x="400" y="124">Access</text>
               </g>
               {/* Node 2: Absorptive */}
               <g className="outer-node-g node-absorptive">
-                <circle cx="580" cy="230" r="35" className="node-circle outer" fill="url(#node-cream-grad)" stroke="#b28d46" filter="url(#shadow-node)" />
+                <circle cx="580" cy="230" r={outerRadius} className="node-circle outer" fill="url(#node-cream-grad)" stroke="#b28d46" filter="url(#shadow-node)" />
                 <text className="node-text label" x="580" y="234">Absorption</text>
               </g>
               {/* Node 3: Generative */}
               <g className="outer-node-g node-generative">
-                <circle cx="510" cy="450" r="35" className="node-circle outer" fill="url(#node-cream-grad)" stroke="#b28d46" filter="url(#shadow-node)" />
+                <circle cx="510" cy="450" r={outerRadius} className="node-circle outer" fill="url(#node-cream-grad)" stroke="#b28d46" filter="url(#shadow-node)" />
                 <text className="node-text label" x="510" y="454">Generative</text>
               </g>
               {/* Node 4: Institutional */}
               <g className="outer-node-g node-institutional">
-                <circle cx="290" cy="450" r="35" className="node-circle outer" fill="url(#node-cream-grad)" stroke="#b28d46" filter="url(#shadow-node)" />
+                <circle cx="290" cy="450" r={outerRadius} className="node-circle outer" fill="url(#node-cream-grad)" stroke="#b28d46" filter="url(#shadow-node)" />
                 <text className="node-text label" x="290" y="454">Institutional</text>
               </g>
               {/* Node 5: DPI */}
               <g className="outer-node-g node-dpi">
-                <circle cx="220" cy="230" r="35" className="node-circle outer" fill="url(#node-cream-grad)" stroke="#b28d46" filter="url(#shadow-node)" />
+                <circle cx="220" cy="230" r={outerRadius} className="node-circle outer" fill="url(#node-cream-grad)" stroke="#b28d46" filter="url(#shadow-node)" />
                 <text className="node-text label" x="220" y="234">Data</text>
               </g>
             </g>

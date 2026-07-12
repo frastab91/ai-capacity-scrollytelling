@@ -62,7 +62,7 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 4rem 2rem;
+  padding: 5rem 2rem 3rem;
   background-color: var(--color-bg);
   border-bottom: 1px solid var(--color-border);
   position: relative;
@@ -72,11 +72,11 @@ body {
 .header-meta {
   font-family: var(--font-sans);
   text-transform: uppercase;
-  font-size: 0.8rem;
-  letter-spacing: 0.22em;
-  color: var(--color-accent);
-  margin-bottom: 2.5rem;
-  font-weight: 700;
+  font-size: 0.72rem;
+  letter-spacing: 0.25em;
+  color: var(--color-text-muted);
+  margin-bottom: 3.5rem;
+  font-weight: 600;
 }
 
 .header-meta .pub-date {
@@ -107,6 +107,32 @@ body {
   line-height: 1.5;
 }
 
+.header-title-primary {
+  font-size: clamp(3rem, 7.5vw, 5.5rem);
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.025em;
+}
+
+.header-title-secondary {
+  font-family: var(--font-serif);
+  font-size: clamp(1rem, 2vw, 1.4rem);
+  font-weight: 400;
+  color: var(--color-text-muted);
+  margin-bottom: 2.5rem;
+  letter-spacing: 0.02em;
+}
+
+.header-deck {
+  font-family: var(--font-serif);
+  font-size: clamp(0.95rem, 2vw, 1.25rem);
+  color: var(--color-text-muted);
+  max-width: 680px;
+  margin-bottom: 0;
+  line-height: 1.65;
+  font-weight: 400;
+}
+
 .header-byline {
   font-family: var(--font-sans);
   font-size: 0.78rem;
@@ -129,12 +155,12 @@ body {
 
 .scroll-prompt {
   margin-top: auto;
-  padding-top: 3rem;
+  padding-top: 5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 0.8rem;
-  opacity: 0.85;
+  opacity: 0.6;
 }
 
 .scroll-text {
@@ -354,6 +380,63 @@ body {
 .step-card strong {
   color: var(--color-text);
   font-weight: 600;
+}
+
+/* Inline Reference Tooltip */
+.ref-trigger {
+  color: var(--color-text);
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px dotted var(--color-text-muted);
+  cursor: pointer;
+  transition: border-bottom-color 0.2s ease, color 0.2s ease;
+}
+
+.ref-trigger:hover,
+.ref-trigger:focus-visible {
+  border-bottom-color: var(--color-accent);
+  color: var(--color-accent-blue);
+  outline: none;
+}
+
+.ref-trigger-wrapper {
+  position: relative;
+  display: inline;
+}
+
+.ref-tooltip {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 500;
+  background-color: hsl(40, 33%, 99%);
+  border: 1px solid var(--color-border);
+  border-top: 3px solid var(--color-accent-blue);
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  font-family: var(--font-serif);
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--color-text-muted);
+  max-width: 300px;
+  width: max-content;
+  box-shadow: 0 12px 40px rgba(92, 74, 60, 0.12), 0 2px 8px rgba(0, 0, 0, 0.04);
+  pointer-events: auto;
+  white-space: normal;
+  text-align: left;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@media (max-width: 767px) {
+  .ref-tooltip {
+    left: 0;
+    transform: none;
+    max-width: 280px;
+    font-size: 0.78rem;
+    padding: 0.65rem 0.85rem;
+  }
 }
 
 /* Closing/Credits Step (Full opacity) */
@@ -680,6 +763,10 @@ body {
   font-size: 11px;
   fill: var(--color-text-muted);
   text-anchor: middle;
+}
+
+.room-label-mobile {
+  display: none;
 }
 
 /* SECTION 3: ABSORPTIVE PIPELINE STYLING */
@@ -1157,7 +1244,7 @@ body {
     height: 85vh !important;
   }
   .access-scrolly-section .graphic-wrapper {
-    height: 100vh !important;
+    height: 72vh !important;
   }
   .absorptive-scrolly-section .graphic-wrapper {
     height: 85vh !important;
@@ -1220,13 +1307,35 @@ body {
   .svg-box-text {
     font-size: 11px !important;
   }
+  .monolith-label {
+    font-size: 2rem !important;
+  }
+  .monolith-sublabel {
+    font-size: 1rem !important;
+  }
+  .node-text.core-lbl-1,
+  .node-text.core-lbl-2 {
+    font-size: 12px !important;
+  }
   .node-text.label {
-    font-size: 11px !important;
+    font-size: 13px !important;
   }
   .term-label {
     font-size: 9px !important;
   }
   .room-label {
     font-size: 12px !important;
+  }
+  .room-label-mobile {
+    display: block;
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--color-text-muted);
+    text-align: center;
+    padding: 0 1.5rem 2.5rem;
+    line-height: 1.5;
+    flex-shrink: 0;
+    opacity: 0;
   }
 }

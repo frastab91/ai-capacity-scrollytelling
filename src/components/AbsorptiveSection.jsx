@@ -3,6 +3,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import { useIsMobile } from '../hooks/useIsMobile';
+import ReferenceTooltip from './ReferenceTooltip';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -197,7 +198,7 @@ export default function AbsorptiveSection() {
           <div className="step-card">
             <span className="step-tag">Absorption / 06</span>
             <h2 className="step-heading">Entering the Pipeline</h2>
-            <p>To turn raw access into actual value, an ecosystem needs <strong>Absorptive Capacity</strong>. This is the organizational and societal capability to <strong>recognize</strong> the value of external AI knowledge, <strong>assimilate</strong> it into local routines, and <strong>apply</strong> it productively.</p>
+            <p>To turn raw access into actual value, an ecosystem needs <ReferenceTooltip term="Absorptive Capacity" tooltipText="Cohen, W. M., &amp; Levinthal, D. A. (1990). Absorptive capacity: A new perspective on learning and innovation. Administrative Science Quarterly, 35(1), 128–152." />. This is the organizational and societal capability to <strong>recognize</strong> the value of external AI knowledge, <strong>assimilate</strong> it into local routines, and <strong>apply</strong> it productively.</p>
           </div>
         </section>
 

@@ -9,7 +9,8 @@ gsap.registerPlugin(ScrollTrigger);
 export default function AccessSection() {
   const containerRef = useRef(null);
   const isMobile = useIsMobile();
-  const svgViewBox = isMobile ? '190 100 420 460' : '0 0 800 600';
+  const svgViewBox = isMobile ? '170 60 460 500' : '0 0 800 600';
+  const roomScale = isMobile ? 1.2 : 1.6;
 
   useGSAP(() => {
     const tl = gsap.timeline({
@@ -76,8 +77,13 @@ export default function AccessSection() {
     }, 0.82)
     .to('.room-wireframe', {
       opacity: 1,
-      scale: 1.6,
+      scale: roomScale,
       duration: 0.18,
+      ease: 'power1.inOut'
+    }, 0.82)
+    .to('.room-label-mobile', {
+      opacity: 1,
+      duration: 0.25,
       ease: 'power1.inOut'
     }, 0.82);
 
@@ -137,9 +143,7 @@ export default function AccessSection() {
               
               {/* Back wall frame */}
               <rect x="-80" y="-80" width="160" height="160" className="room-back-wall" fill="#fefdfa" stroke="#e4dad0" />
-              {/* Bare, stylized outline table/chair */}
-              <path d="M -30 20 L 30 20 L 25 50 M -25 20 L -25 50 M -5 20 L -5 35 M 5 20 L 5 35" className="room-line" strokeWidth="1.5" stroke="#b28d46" />
-              <text x="0" y="-20" className="room-label">Access opens the door. But the room is empty.</text>
+              {!isMobile && <text x="0" y="-20" className="room-label">Access opens the door. But the room is empty.</text>}
             </g>
  
             {/* Decorative Door Frame */}
@@ -191,6 +195,7 @@ export default function AccessSection() {
             </g>
           </svg>
         </div>
+        {isMobile && <p className="room-label-mobile">Access opens the door.<br />But the room is still empty.</p>}
       </div>
 
       {/* Scrollable narrative textual content */}
