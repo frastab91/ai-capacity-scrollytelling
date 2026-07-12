@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
@@ -198,12 +199,18 @@ export default function App() {
 
           {/* STEP 8.1 */}
           <section className="step" data-step="closing-view">
-            <div className="step-card">
+            <motion.div
+              className="step-card closing-view-card"
+              initial={{ opacity: 0, scale: 0.98 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: false, amount: 0.3 }}
+            >
               <span className="step-tag">Conclusion / 15</span>
               <h2 className="step-heading">Plural AI Futures</h2>
               <p>The capacity to benefit from AI lies in connected, generative, safeguarded ecosystems that enable societies to choose, contest, and co-create their own trajectories.</p>
               <p>By moving past monolithic rankings and absorption metrics, we open the horizon to a pluriverse of technical and human progress.</p>
-            </div>
+            </motion.div>
           </section>
 
           {/* STEP 8.2 */}
