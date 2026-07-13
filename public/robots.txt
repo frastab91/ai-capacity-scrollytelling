@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ai-capacity-constellations.vercel.app/sitemap.xml
