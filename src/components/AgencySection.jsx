@@ -9,7 +9,7 @@ gsap.registerPlugin(ScrollTrigger);
 const AgencySection = ({ isActive, selectedPathway, setSelectedPathway }) => {
   const containerRef = useRef(null);
   const isMobile = useIsMobile();
-  const svgViewBox = isMobile ? '100 50 600 500' : '0 0 800 600';
+  const svgViewBox = isMobile ? '60 160 680 380' : '0 0 800 600';
 
   useGSAP(() => {
     // Set initial states
@@ -133,11 +133,11 @@ const AgencySection = ({ isActive, selectedPathway, setSelectedPathway }) => {
                 onClick={(e) => handlePathwayClick(e, path.id)}
               >
                 <circle 
-                  r="26" 
+                  r={isMobile ? 36 : 26} 
                   className="term-circle" 
                   fill="url(#node-cream-grad-agency)" 
                   stroke="#b28d46" 
-                  strokeWidth="2" 
+                  strokeWidth={isMobile ? 2.5 : 2} 
                   filter="url(#shadow-node-agency)" 
                 />
                 <text y="4" className="term-label" style={{ userSelect: 'none', pointerEvents: 'none' }}>
