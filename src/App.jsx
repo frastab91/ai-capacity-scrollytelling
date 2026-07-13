@@ -16,6 +16,8 @@ import AgencySection from './components/AgencySection';
 import SafeguardsSection from './components/SafeguardsSection';
 import ClosingSection from './components/ClosingSection';
 import HUD from './components/HUD';
+import { ThemeProvider } from './contexts/ThemeContext';
+import { NavHeader } from './components/NavHeader';
 
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
@@ -87,7 +89,9 @@ export default function App() {
   };
 
   return (
-    <>
+    <ThemeProvider>
+      <NavHeader />
+
       {/* Progress Bar at the top */}
       <div className="scroll-progress-indicator" id="progress-bar"></div>
 
@@ -231,12 +235,6 @@ export default function App() {
 
       </main>
 
-      <footer className="editorial-footer">
-        <div className="footer-content">
-          <p>&copy; 2026 AI Capacity Narrative Project. Built with React, GSAP, and premium web animations.</p>
-        </div>
-      </footer>
-
       {/* Floating HUD Details overlay panel */}
       <HUD 
         selectedNode={selectedNode}
@@ -244,6 +242,6 @@ export default function App() {
         selectedPathway={selectedPathway}
         setSelectedPathway={setSelectedPathway}
       />
-    </>
+    </ThemeProvider>
   );
 }
