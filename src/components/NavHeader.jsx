@@ -120,8 +120,8 @@ export function NavHeader() {
               </p>
 
               <p>
-                This website was created entirely using <span className="nav-header-semibold">Figma Make</span> and{' '}
-                <span className="nav-header-semibold">GitHub Co-pilot - with prompt optimization on Gemini 3.0</span>, translating conceptual prompts into a fully functional, responsive web experience.
+                This project was built using <span className="nav-header-semibold">OpenCode with DeepSeek v4</span> and{' '}
+                <span className="nav-header-semibold">Zed Coder with Claude Sonnet 4.6</span>, translating conceptual prompts into a fully functional, responsive web experience.
               </p>
 
               <p className="nav-header-accent-italic" style={{ color: '#b28d46' }}>
