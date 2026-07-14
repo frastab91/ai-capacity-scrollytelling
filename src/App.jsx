@@ -100,7 +100,6 @@ export default function App() {
         <VectorFieldCanvas />
         <div style={{ position: 'relative', zIndex: 2, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100%', width: '100%', pointerEvents: 'none' }}>
           <div className="header-meta" style={{ pointerEvents: 'auto' }}>
-            <span className="pub-type">Visual Essay — July 2026</span>
           </div>
           <h1 className="header-title header-title-primary" style={{ pointerEvents: 'auto' }}>From Access to Agency</h1>
           <p className="header-title-secondary" style={{ pointerEvents: 'auto' }}>AI Capacity: From Monolith to Constellation</p>
@@ -122,35 +121,35 @@ export default function App() {
 
       {/* Shared Interactive Scrollytelling Section for Sections 5-8 */}
       <main className="scrolly-container interactive-scrolly-section">
-        
+
         {/* Sticky Graphic Pane */}
         <div className="sticky-graphic">
           <div className="graphic-wrapper">
-            <ConstellationSection 
-              isActive={activeSection === 'constellation'} 
-              selectedNode={selectedNode} 
-              setSelectedNode={setSelectedNode} 
+            <ConstellationSection
+              isActive={activeSection === 'constellation'}
+              selectedNode={selectedNode}
+              setSelectedNode={setSelectedNode}
             />
-            
-            <AgencySection 
-              isActive={activeSection === 'agency'} 
-              selectedPathway={selectedPathway} 
-              setSelectedPathway={setSelectedPathway} 
+
+            <AgencySection
+              isActive={activeSection === 'agency'}
+              selectedPathway={selectedPathway}
+              setSelectedPathway={setSelectedPathway}
             />
-            
-            <SafeguardsSection 
-              isActive={activeSection === 'safeguards'} 
+
+            <SafeguardsSection
+              isActive={activeSection === 'safeguards'}
             />
-            
-            <ClosingSection 
-              isActive={activeSection === 'closing'} 
+
+            <ClosingSection
+              isActive={activeSection === 'closing'}
             />
           </div>
         </div>
 
         {/* Scrollable Narrative column for Sections 5-8 */}
         <div className="scroll-narrative">
-          
+
           {/* STEP 5.1 */}
           <section className="step" data-step="constellation-interactive">
             <div className="step-card">
@@ -224,7 +223,7 @@ export default function App() {
                 “The capacity to benefit from AI lies in ecosystems that can selectively absorb, critically evaluate, and generatively transform AI in line with pluriversal futures.”
               </h2>
               <p className="closing-byline">Absorptive Capacity, Access, and Constellations of AI Capability (2026)</p>
-              
+
               <div className="closing-actions">
                 <button id="restart-btn" className="editorial-btn" onClick={handleRestart}>Restart Narrative</button>
               </div>
@@ -236,7 +235,7 @@ export default function App() {
       </main>
 
       {/* Floating HUD Details overlay panel */}
-      <HUD 
+      <HUD
         selectedNode={selectedNode}
         setSelectedNode={setSelectedNode}
         selectedPathway={selectedPathway}

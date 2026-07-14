@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Palette, X, ExternalLink } from 'lucide-react';
+import { Palette, X, ExternalLink, Home } from 'lucide-react';
 import { useTheme } from '../contexts/ThemeContext';
 
 export function NavHeader() {
@@ -29,6 +29,17 @@ export function NavHeader() {
           >
             <span className="nav-header-name">Francesco Stabilito</span>
             <ExternalLink className="nav-header-icon" />
+          </a>
+
+          <a
+            href="https://vibe-playground.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="nav-header-center"
+            style={{ color: colors.text }}
+            aria-label="Home"
+          >
+            <Home className="nav-header-icon-center" />
           </a>
 
           <div className="nav-header-right">
